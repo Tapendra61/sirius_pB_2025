@@ -1,6 +1,15 @@
+/*
+	@file WindowManager.h
+	@author Tapendra Shahi
+	@date 2025-07-31
+	@brief Defines window management functions for Raylib Window
+*/
+
 #pragma once
 
 #include<raylib/raylib.h>
+#include<print>
+#include<SceneManager.h>
 
 class WindowManager {
 private:
