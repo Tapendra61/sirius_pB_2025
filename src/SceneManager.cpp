@@ -8,8 +8,15 @@ void SceneManager::SetGameScreen(GameScreen value) {
 	gameScreen = value;
 }
 
-std::string SceneManager::GetGameScreen(GameScreen value) {
-	switch (value) {
+GameScreen SceneManager::GetGameScreen() const {
+	return gameScreen;
+}
+
+std::string SceneManager::GetGameScreenString() {
+	switch (gameScreen) {
+	case GameScreen::LOGO:
+		return "LOGO";
+		break;
 	case GameScreen::MENU:
 		return "MENU";
 		break;

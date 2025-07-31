@@ -4,6 +4,7 @@
 #include<print>
 
 enum GameScreen{
+	LOGO,
 	MENU,
 	GAMEPLAY,
 	PAUSE,
@@ -11,12 +12,11 @@ enum GameScreen{
 };
 
 class SceneManager {
-public:
+private:
 	GameScreen gameScreen;
 
 public:
 	SceneManager(const SceneManager&) = delete;
-	SceneManager& operator=(const SceneManager&) = delete;
 
 	static SceneManager& GetInstance() {
 		static SceneManager instance;
@@ -24,7 +24,8 @@ public:
 	}
 
 	void SetGameScreen(GameScreen value);
-	std::string GetGameScreen(GameScreen value);
+	GameScreen GetGameScreen() const;
+	std::string GetGameScreenString();
 
 private:
 	SceneManager();

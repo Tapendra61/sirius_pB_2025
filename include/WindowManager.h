@@ -17,6 +17,7 @@ private:
 	int windowHeight;
 	int fps;
 	const char* windowTitle;
+	SceneManager& sceneManager;
 
 public:
 	WindowManager(int width, int height, const char* title, int fps);

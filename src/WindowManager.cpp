@@ -1,6 +1,6 @@
 #include<WindowManager.h>
 
-WindowManager::WindowManager(int width, int height, const char* title, int fps) {
+WindowManager::WindowManager(int width, int height, const char* title, int fps) : sceneManager(SceneManager::GetInstance()) {
 	windowWidth = width;
 	windowHeight = height;
 	windowTitle = title;
@@ -32,7 +32,7 @@ void WindowManager::Run() {
 }
 
 void WindowManager::Start() {
-	SceneManager::GetInstance().SetGameScreen(MENU);
+	sceneManager.SetGameScreen(MENU);
 }
 
 void WindowManager::Update() {
