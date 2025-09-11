@@ -1,44 +1,56 @@
-#include<WindowManager.h>
+#include <WindowManager.h>
 
-WindowManager::WindowManager(int width, int height, const char* title, int fps) : sceneManager(SceneManager::GetInstance()) {
+WindowManager::WindowManager(int width, int height, const char *title, int fps) : sceneManager(SceneManager::GetInstance())
+{
 	windowWidth = width;
 	windowHeight = height;
 	windowTitle = title;
 	this->fps = fps;
 }
 
-void WindowManager::Run() {
+void WindowManager::Run()
+{
 	InitWindow(windowWidth, windowHeight, windowTitle);
-	
-	if (!IsWindowReady()) {
-		std::println(stderr, "Window creation failed!");
+
+	if (!IsWindowReady())
+	{
+		std::cout << "Window Creation Filed!!" << std::endl;
 		CloseWindow();
 	}
-	
-	SetTargetFPS(fps);
-	ToggleFullscreen();
 
-	//Initialize game data
+	SetTargetFPS(fps);
+	ToggleBorderlessWindowed();
+	DisableCursor();
+
+	// Initialize game data
 	Start();
-	while (!WindowShouldClose()) {
-		//Update game data
+	while (!WindowShouldClose())
+	{
+		ClearBackground(RAYWHITE);
+		// Update game data
 		Update();
 
-		//Render
+		// Render
 		BeginDrawing();
 		LateUpdate();
 		EndDrawing();
 	}
 }
 
-void WindowManager::Start() {
+// Data initialization here
+void WindowManager::Start()
+{
 	sceneManager.SetGameScreen(MENU);
 }
 
-void WindowManager::Update() {
-
+// Data update tasks here
+void WindowManager::Update()
+{
 }
 
-void WindowManager::LateUpdate() {
-
+// Drawing tasks here
+void WindowManager::LateUpdate()
+{
+	settings.DrawFPSText();
+	sceneManager.RenderUi();
 }

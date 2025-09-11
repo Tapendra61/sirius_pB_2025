@@ -8,8 +8,9 @@
 #pragma once
 
 #include<raylib/raylib.h>
-#include<print>
+#include<iostream>
 #include<SceneManager.h>
+#include"Settings.h"
 
 class WindowManager {
 private:
@@ -17,7 +18,10 @@ private:
 	int windowHeight;
 	int fps;
 	const char* windowTitle;
+
+	//Dependenceis
 	SceneManager& sceneManager;
+	Settings settings;
 
 public:
 	WindowManager(int width, int height, const char* title, int fps);

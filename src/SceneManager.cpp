@@ -31,6 +31,41 @@ std::string SceneManager::GetGameScreenString() {
 		break;
 	default:
 		std::printf("Might add some shit later!");
+		return "No Game Screen";
 		break;
 	}
+}
+
+void SceneManager::RenderUi() {
+	switch (gameScreen) {
+	case MENU:
+		RenderMainMenu();
+		break;
+	case GAMEPLAY:
+		RenderGameUi();
+		RenderGame();
+	default:
+		std::cout << "Defult Case Invoked!" << std::endl;
+		break;
+	}
+}
+
+void SceneManager::RenderMainMenu() {
+	
+}
+
+void SceneManager::RenderGameUi() {
+
+}
+
+void SceneManager::RenderGame() {
+
+}
+
+void SceneManager::RenderPausedMenu() {
+
+}
+
+void SceneManager::RenderGameOverMenu() {
+
 }
