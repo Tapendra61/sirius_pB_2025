@@ -35,3 +35,5 @@ void AssetLoader::UnloadAll() {
 
 	textureMap.clear();
 }
+
+AssetLoader gAssetLoader;

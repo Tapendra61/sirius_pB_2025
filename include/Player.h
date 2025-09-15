@@ -12,6 +12,6 @@ private:
 public:
 	Player();
 	inline void SetPosition(Vector2 pos) { position = pos; }
-	void LoadResources();
 	void Draw();
+	void Init();
 };

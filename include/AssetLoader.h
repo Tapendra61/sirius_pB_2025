@@ -6,7 +6,6 @@
 
 #include "raylib/raylib.h"
 
-
 class AssetLoader {
    private:
 	std::unordered_map<std::string, Texture2D> textureMap;
@@ -17,3 +16,5 @@ class AssetLoader {
 
 	void UnloadAll();
 };
+
+extern AssetLoader gAssetLoader;

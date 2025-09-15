@@ -1,9 +1,11 @@
 #include"Player.h"
 
-Player::Player() : idleAnimation("resources/characters/the_blind_hunter/1. Idle 48 x 48.png", 48) {
+Player::Player() : idleAnimation("player_idle", 48) { }
 
+void Player::Init() {
+	idleAnimation.Init();
 }
 
 void Player::Draw() {
-	//idleAnimation.Play();
+	idleAnimation.Play();
 }
