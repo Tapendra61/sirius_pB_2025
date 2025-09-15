@@ -1,9 +1,17 @@
 #pragma once
 
-#include<raylib/raylib.h>
+#include <raylib/raylib.h>
+#include"Animation.h"
 
-class Player {
+class Player
+{
 private:
-	Texture2D texture;
+	Animation idleAnimation;
 	Vector2 position;
+
+public:
+	Player();
+	inline void SetPosition(Vector2 pos) { position = pos; }
+	void LoadResources();
+	void Draw();
 };

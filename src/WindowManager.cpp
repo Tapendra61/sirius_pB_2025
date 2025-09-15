@@ -40,6 +40,7 @@ void WindowManager::Run()
 // Data initialization here
 void WindowManager::Start()
 {
+	LoadResources();
 	sceneManager.SetGameScreen(MENU);
 }
 
@@ -53,4 +54,10 @@ void WindowManager::LateUpdate()
 {
 	settings.DrawFPSText();
 	sceneManager.RenderUi();
+
+	player.Draw();
+}
+
+void WindowManager::LoadResources() {
+
 }

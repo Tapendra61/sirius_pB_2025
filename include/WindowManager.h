@@ -7,30 +7,39 @@
 
 #pragma once
 
-#include<raylib/raylib.h>
-#include<iostream>
-#include<SceneManager.h>
-#include"Settings.h"
+#include <SceneManager.h>
+#include <raylib/raylib.h>
+
+#include <iostream>
+
+#include"Player.h"
+
+#include "Settings.h"
+
 
 class WindowManager {
-private:
+   private:
 	int windowWidth;
 	int windowHeight;
 	int fps;
 	const char* windowTitle;
 
-	//Dependenceis
+	// Dependenceis
 	SceneManager& sceneManager;
 	Settings settings;
 
-public:
+	// Player
+	Player player;
+
+   public:
 	WindowManager(int width, int height, const char* title, int fps);
 	WindowManager(WindowManager&) = delete;
 
 	void Run();
 
-private:
+   private:
 	void Start();
 	void Update();
 	void LateUpdate();
+	void LoadResources();
 };
