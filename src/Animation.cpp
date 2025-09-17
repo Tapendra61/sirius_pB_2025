@@ -1,24 +1,53 @@
 #include "Animation.h"
 
-Animation::Animation(const std::string& texKey, int sizePerSlice) {
+Animation::Animation(const std::string& texKey, int sizePerSlice,
+					 float animationSpeed, AnimationType type) {
 	textureKey = texKey;
 	this->sizePerSlice = sizePerSlice;
+	speed = animationSpeed;
+	animationType = type;
 }
 
 void Animation::Init() {
 	texture = gAssetLoader.GetTexture(textureKey);
 	totalSlices = texture.width / sizePerSlice;
-	std::cout << "Texture id: " << texture.id << std::endl;
+	firstIndex = 0;
+	currentIndex = 0;
+	lastIndex = totalSlices - 1;
 }
 
 void Animation::Play() {
-	for (int i = 0; i < totalSlices; i++) {
-		float x = (static_cast<float>(i) / totalSlices) * texture.width;
-		float y = 0;
+	if (IsKeyPressed(KEY_SPACE)) {
+		currentIndex = firstIndex;
+		duration = 0.0f;
+	}
 
-		DrawTexturePro(texture,
-					   {x, y, (float)sizePerSlice, (float)sizePerSlice},
-					   {20, 20, 100, 100}, {0, 0}, 0.0f, WHITE);
+	deltaTime = GetFrameTime();
+
+	float x = ((currentIndex) % totalSlices) * sizePerSlice;
+	float y = (currentIndex / totalSlices) * sizePerSlice;
+
+	DrawTexturePro(texture, {x, y, (float)sizePerSlice, (float)sizePerSlice},
+				   {30, 30, 100, 100}, {0, 0}, 0.0f, WHITE);
+
+	if (duration > 0.0f) {
+		duration -= deltaTime;
+		return;
+	}
+	duration = speed;
+
+	switch (animationType) {
+		case REPEATING:
+			currentIndex++;
+			if(currentIndex > lastIndex) {
+				currentIndex = firstIndex;
+			}
+			break;
+		case ONESHOT:
+			if(currentIndex < lastIndex) {
+				currentIndex++;
+			}
+			break;
 	}
 }
 
