@@ -41,7 +41,7 @@ void WindowManager::Run()
 void WindowManager::Start()
 {
 	LoadResources();
-	
+
 	player.Init();
 	sceneManager.SetGameScreen(MENU);
 }
@@ -49,6 +49,7 @@ void WindowManager::Start()
 // Data update tasks here
 void WindowManager::Update()
 {
+	player.Update();
 }
 
 // Drawing tasks here
