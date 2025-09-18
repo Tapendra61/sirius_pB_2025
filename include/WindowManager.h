@@ -12,10 +12,9 @@
 
 #include <iostream>
 
-#include"Player.h"
-
+#include "CustomCamera.h"
+#include "Player.h"
 #include "Settings.h"
-
 
 class WindowManager {
    private:
@@ -27,6 +26,9 @@ class WindowManager {
 	// Dependenceis
 	SceneManager& sceneManager;
 	Settings settings;
+
+	// Camera
+	CustomCamera customCamera;
 
 	// Player
 	Player player;

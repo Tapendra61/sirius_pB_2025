@@ -58,7 +58,11 @@ void WindowManager::LateUpdate()
 	settings.DrawFPSText();
 	sceneManager.RenderUi();
 
+	BeginMode2D(customCamera.GetCamera());
+
 	player.Draw();
+
+	EndMode2D();
 }
 
 void WindowManager::LoadResources() {

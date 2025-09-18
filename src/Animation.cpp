@@ -17,10 +17,11 @@ void Animation::Init() {
 }
 
 void Animation::Play() {
-	if (IsKeyPressed(KEY_SPACE)) {
-		currentIndex = firstIndex;
-		duration = 0.0f;
-	}
+	// Testing for One Shot animations
+	// if (IsKeyPressed(KEY_SPACE)) {
+	// 	currentIndex = firstIndex;
+	// 	duration = 0.0f;
+	// }
 
 	deltaTime = GetFrameTime();
 
