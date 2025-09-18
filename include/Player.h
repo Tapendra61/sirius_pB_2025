@@ -7,6 +7,7 @@ class Player
 {
 private:
 	Animation idleAnimation;
+	Animation runAnimation;
 	Vector2 position;
 
 public:

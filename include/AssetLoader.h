@@ -15,6 +15,7 @@ class AssetLoader {
 	Texture2D& GetTexture(const std::string& key);
 
 	void UnloadAll();
+	void PrintAllTextureKeys();
 };
 
 extern AssetLoader gAssetLoader;

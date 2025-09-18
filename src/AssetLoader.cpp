@@ -14,6 +14,7 @@ void AssetLoader::LoadTex(const std::string& key, const std::string& path) {
 	}
 
 	textureMap[key] = tex;
+	std::cout << "Loaded Texture: " << path << std::endl;
 }
 
 Texture2D& AssetLoader::GetTexture(const std::string& key) {
@@ -34,6 +35,12 @@ void AssetLoader::UnloadAll() {
 	}
 
 	textureMap.clear();
+}
+
+void AssetLoader::PrintAllTextureKeys() {
+	for(auto& [key, tex] : textureMap) {
+		std::cout << "Key: " << key << std::endl;
+	}
 }
 
 AssetLoader gAssetLoader;

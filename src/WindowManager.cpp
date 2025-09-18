@@ -41,6 +41,7 @@ void WindowManager::Run()
 void WindowManager::Start()
 {
 	LoadResources();
+	
 	player.Init();
 	sceneManager.SetGameScreen(MENU);
 }
@@ -61,4 +62,5 @@ void WindowManager::LateUpdate()
 
 void WindowManager::LoadResources() {
 	gAssetLoader.LoadTex("player_idle", "resources/characters/the_blind_hunter/1. Idle 48 x 48.png");
+	gAssetLoader.LoadTex("player_run", "resources/characters/the_blind_hunter/2. Run 48 x 48.png");
 }
