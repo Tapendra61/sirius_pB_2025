@@ -44,7 +44,10 @@ void WindowManager::Start() {
 }
 
 // Data update tasks here
-void WindowManager::Update() { player.Update(); }
+void WindowManager::Update() {
+	player.Update();
+	customCamera.UpdateCameraTarget(player.GetPosition());
+}
 
 // Drawing tasks here
 void WindowManager::LateUpdate() {
