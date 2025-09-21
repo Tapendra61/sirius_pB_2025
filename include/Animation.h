@@ -27,9 +27,12 @@ class Animation {
 	float duration;		// Time remaining to play the next frame
 	AnimationType animationType;
 
+	Vector2 drawDestination;
+	Vector2 drawSize;
+
    public:
 	Animation(const std::string& texKey, int sizePerSlice,
-			  float animationSpeed, AnimationType type);
+			  float animationSpeed, AnimationType type, Vector2 drawDestination, Vector2 drawSize);
 
 	~Animation();
 

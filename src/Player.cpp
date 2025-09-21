@@ -1,8 +1,10 @@
 #include "Player.h"
 
-Player::Player()
-	: idleAnimation("player_idle", 48, 0.1f, REPEATING),
-	  runAnimation("player_run", 48, 0.08f, REPEATING),
+Player::Player(Vector2 initPosition, Vector2 pSize)
+	: position{initPosition},
+	  playerSize{pSize},
+	  idleAnimation("player_idle", 48, 0.1f, REPEATING, position, playerSize),
+	  runAnimation("player_run", 48, 0.08f, REPEATING, position, playerSize),
 	  currentAnimation{&idleAnimation} {}
 
 void Player::Init() {
@@ -11,9 +13,9 @@ void Player::Init() {
 }
 
 void Player::Update() {
-	if(IsKeyDown(KEY_D)) {
+	if (IsKeyDown(KEY_D)) {
 		UpdateAnimationState(PlayerAnimationState::RUNNING);
-	}else {
+	} else {
 		UpdateAnimationState(PlayerAnimationState::IDLE);
 	}
 }

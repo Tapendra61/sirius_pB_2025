@@ -1,11 +1,13 @@
 #include "Animation.h"
 
 Animation::Animation(const std::string& texKey, int sizePerSlice,
-					 float animationSpeed, AnimationType type) {
+					 float animationSpeed, AnimationType type, Vector2 drawDestination, Vector2 drawSize) {
 	textureKey = texKey;
 	this->sizePerSlice = sizePerSlice;
 	speed = animationSpeed;
 	animationType = type;
+	this->drawDestination = drawDestination;
+	this->drawSize = drawSize;
 }
 
 void Animation::Init() {
@@ -29,7 +31,7 @@ void Animation::Play() {
 	float y = (currentIndex / totalSlices) * sizePerSlice;
 
 	DrawTexturePro(texture, {x, y, (float)sizePerSlice, (float)sizePerSlice},
-				   {30, 30, 100, 100}, {0, 0}, 0.0f, WHITE);
+				   {drawDestination.x, drawDestination.y, drawSize.x, drawSize.y}, {0, 0}, 0.0f, WHITE);
 
 	if (duration > 0.0f) {
 		duration -= deltaTime;
