@@ -2,7 +2,7 @@
 
 WindowManager::WindowManager(int width, int height, const char* title, int fps)
 	: sceneManager(SceneManager::GetInstance()),
-	  player({200.0f, 200.0f}, {48.0f, 48.0f}) {
+	  player({400.0f, 400.0f}, {2.0f, 2.0f}) {
 	windowWidth = width;
 	windowHeight = height;
 	windowTitle = title;

@@ -31,7 +31,7 @@ void Animation::Play() {
 	float y = (currentIndex / totalSlices) * sizePerSlice;
 
 	DrawTexturePro(texture, {x, y, (float)sizePerSlice, (float)sizePerSlice},
-				   {drawDestination.x, drawDestination.y, drawSize.x, drawSize.y}, {0, 0}, 0.0f, WHITE);
+				   {drawDestination.x, drawDestination.y, sizePerSlice * drawSize.x, sizePerSlice * drawSize.y}, {0, 0}, 0.0f, WHITE);
 
 	if (duration > 0.0f) {
 		duration -= deltaTime;
