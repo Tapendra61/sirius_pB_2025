@@ -14,5 +14,6 @@ class Transform2D {
 	inline float& Rotation() { return rotation; }
 	inline Vector2 Scale() { return scale; }
 	void Translate(Vector2 value);
+	void Translate(float dx, float dy);
 	
 };
