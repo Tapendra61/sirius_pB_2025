@@ -1,4 +1,4 @@
-#include "AssetLoader.h"
+#include "core/AssetLoader.h"
 
 void AssetLoader::LoadTex(const std::string& key, const std::string& path) {
 	if (textureMap.find(key) != textureMap.end()) {

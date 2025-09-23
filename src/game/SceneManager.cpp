@@ -1,4 +1,4 @@
-#include<SceneManager.h>
+#include<game/SceneManager.h>
 
 SceneManager::SceneManager() {
 	gameScreen = MENU;

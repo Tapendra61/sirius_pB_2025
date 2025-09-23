@@ -1,4 +1,4 @@
-#include "Player.h"
+#include "game/Player.h"
 
 Player::Player(Vector2 initPosition, Vector2 pSize)
 	: position{initPosition},

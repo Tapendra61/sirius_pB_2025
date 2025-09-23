@@ -1,4 +1,4 @@
-#include "Animation.h"
+#include "core/Animation.h"
 
 Animation::Animation(const std::string& texKey, int sizePerSlice,
 					 float animationSpeed, AnimationType type, Vector2 drawDestination, Vector2 drawSize) {

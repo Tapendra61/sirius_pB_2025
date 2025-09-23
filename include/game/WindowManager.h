@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <SceneManager.h>
+#include <game/SceneManager.h>
 #include <raylib/raylib.h>
 
 #include <iostream>

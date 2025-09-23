@@ -1,4 +1,4 @@
-#include"Settings.h"
+#include"game/Settings.h"
 
 void Settings::DrawFPSText() {
 	if(showFPS) {

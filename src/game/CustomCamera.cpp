@@ -1,4 +1,4 @@
-#include "CustomCamera.h"
+#include "game/CustomCamera.h"
 
 CustomCamera::CustomCamera(Vector2 cameraTarget, Vector2 targetOffset,
 						   float rotation, float zoom)
