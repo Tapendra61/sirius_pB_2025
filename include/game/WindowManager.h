@@ -31,7 +31,7 @@ class WindowManager {
 	CustomCamera customCamera;
 
 	// Player
-	Player player;
+	Player* player;
 
    public:
 	WindowManager(int width, int height, const char* title, int fps);

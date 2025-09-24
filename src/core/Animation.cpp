@@ -3,7 +3,8 @@
 Animation::Animation(const std::string& texKey, int sizePerSlice,
 					 float animationSpeed, AnimationType type,
 					 Vector2& drawDestination, Vector2& drawSize)
-	: textureKey(texKey),
+	: texture(gAssetLoader.GetTexture(texKey)),
+	  textureKey(texKey),
 	  sizePerSlice(sizePerSlice),
 	  speed(animationSpeed),
 	  animationType(type),
@@ -11,7 +12,6 @@ Animation::Animation(const std::string& texKey, int sizePerSlice,
 	  drawSize(drawSize) {}
 
 void Animation::Init() {
-	texture = gAssetLoader.GetTexture(textureKey);
 	totalSlices = texture.width / sizePerSlice;
 	firstIndex = 0;
 	currentIndex = 0;
@@ -33,7 +33,7 @@ void Animation::Play(bool flipped) {
 	Rectangle src{x, y, (float)sizePerSlice, (float)sizePerSlice};
 	Rectangle dest{drawDestination.x, drawDestination.y,
 				   sizePerSlice * drawSize.x, sizePerSlice * drawSize.y};
-				   
+
 	if (flipped) {
 		src.width = -src.width;
 	}
@@ -61,5 +61,3 @@ void Animation::Play(bool flipped) {
 			break;
 	}
 }
-
-Animation::~Animation() { UnloadTexture(texture); }

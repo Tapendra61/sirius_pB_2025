@@ -1,8 +1,7 @@
 #include <game/WindowManager.h>
 
 WindowManager::WindowManager(int width, int height, const char* title, int fps)
-	: sceneManager(SceneManager::GetInstance()),
-	  player({400.0f, 400.0f}, {2.5f, 2.5f}) {
+	: sceneManager(SceneManager::GetInstance()) {
 	windowWidth = width;
 	windowHeight = height;
 	windowTitle = title;
@@ -38,15 +37,15 @@ void WindowManager::Run() {
 // Data initialization here
 void WindowManager::Start() {
 	LoadResources();
-
-	player.Init();
+	player = new Player({400.0f, 400.0f}, {2.5f, 2.5f});
+	player->Init();
 	sceneManager.SetGameScreen(MENU);
 }
 
 // Data update tasks here
 void WindowManager::Update() {
-	player.Update();
-	//customCamera.UpdateCameraTarget(player.GetTransform2D().Position());
+	player->Update();
+	// customCamera.UpdateCameraTarget(player.GetTransform2D().Position());
 }
 
 // Drawing tasks here
@@ -56,7 +55,7 @@ void WindowManager::LateUpdate() {
 
 	BeginMode2D(customCamera.GetCamera());
 
-	player.Draw();
+	player->Draw();
 
 	EndMode2D();
 }
