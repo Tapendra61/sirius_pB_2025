@@ -36,6 +36,7 @@ class WindowManager {
    public:
 	WindowManager(int width, int height, const char* title, int fps);
 	WindowManager(WindowManager&) = delete;
+	~WindowManager();
 
 	void Run();
 

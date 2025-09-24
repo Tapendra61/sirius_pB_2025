@@ -68,3 +68,7 @@ void WindowManager::LoadResources() {
 		"player_run",
 		"resources/characters/the_blind_hunter/2. Run 48 x 48.png");
 }
+
+WindowManager::~WindowManager() {
+	delete player;
+}
