@@ -1,14 +1,14 @@
 #include "core/Animation.h"
 
 Animation::Animation(const std::string& texKey, int sizePerSlice,
-					 float animationSpeed, AnimationType type, Vector2 drawDestination, Vector2 drawSize) {
-	textureKey = texKey;
-	this->sizePerSlice = sizePerSlice;
-	speed = animationSpeed;
-	animationType = type;
-	this->drawDestination = drawDestination;
-	this->drawSize = drawSize;
-}
+					 float animationSpeed, AnimationType type,
+					 Vector2& drawDestination, Vector2& drawSize)
+	: textureKey(texKey),
+	  sizePerSlice(sizePerSlice),
+	  speed(animationSpeed),
+	  animationType(type),
+	  drawDestination(drawDestination),
+	  drawSize(drawSize) {}
 
 void Animation::Init() {
 	texture = gAssetLoader.GetTexture(textureKey);
@@ -18,7 +18,7 @@ void Animation::Init() {
 	lastIndex = totalSlices - 1;
 }
 
-void Animation::Play() {
+void Animation::Play(bool flipped) {
 	// Testing for One Shot animations
 	// if (IsKeyPressed(KEY_SPACE)) {
 	// 	currentIndex = firstIndex;
@@ -30,8 +30,16 @@ void Animation::Play() {
 	float x = ((currentIndex) % totalSlices) * sizePerSlice;
 	float y = (currentIndex / totalSlices) * sizePerSlice;
 
-	DrawTexturePro(texture, {x, y, (float)sizePerSlice, (float)sizePerSlice},
-				   {drawDestination.x, drawDestination.y, sizePerSlice * drawSize.x, sizePerSlice * drawSize.y}, {0, 0}, 0.0f, WHITE);
+	Rectangle src{x, y, (float)sizePerSlice, (float)sizePerSlice};
+	Rectangle dest{drawDestination.x, drawDestination.y,
+				   sizePerSlice * drawSize.x, sizePerSlice * drawSize.y};
+				   
+	if (flipped) {
+		src.width = -src.width;
+	}
+
+	DrawTexturePro(texture, src, dest, {dest.width / 2.0f, dest.height / 2.0f},
+				   0.0f, WHITE);
 
 	if (duration > 0.0f) {
 		duration -= deltaTime;
@@ -42,12 +50,12 @@ void Animation::Play() {
 	switch (animationType) {
 		case REPEATING:
 			currentIndex++;
-			if(currentIndex > lastIndex) {
+			if (currentIndex > lastIndex) {
 				currentIndex = firstIndex;
 			}
 			break;
 		case ONESHOT:
-			if(currentIndex < lastIndex) {
+			if (currentIndex < lastIndex) {
 				currentIndex++;
 			}
 			break;

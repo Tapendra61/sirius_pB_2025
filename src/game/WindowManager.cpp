@@ -2,7 +2,7 @@
 
 WindowManager::WindowManager(int width, int height, const char* title, int fps)
 	: sceneManager(SceneManager::GetInstance()),
-	  player({400.0f, 400.0f}, {2.0f, 2.0f}) {
+	  player({400.0f, 400.0f}, {2.5f, 2.5f}) {
 	windowWidth = width;
 	windowHeight = height;
 	windowTitle = title;
@@ -46,7 +46,7 @@ void WindowManager::Start() {
 // Data update tasks here
 void WindowManager::Update() {
 	player.Update();
-	customCamera.UpdateCameraTarget(player.GetPosition());
+	//customCamera.UpdateCameraTarget(player.GetTransform2D().Position());
 }
 
 // Drawing tasks here

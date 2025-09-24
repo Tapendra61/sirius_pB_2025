@@ -1,10 +1,11 @@
 #include "game/Player.h"
 
 Player::Player(Vector2 initPosition, Vector2 pSize)
-	: position{initPosition},
-	  playerSize{pSize},
-	  idleAnimation("player_idle", 48, 0.1f, REPEATING, position, playerSize),
-	  runAnimation("player_run", 48, 0.08f, REPEATING, position, playerSize),
+	: transform(initPosition, 0.0f, pSize),
+	  idleAnimation("player_idle", 48, 0.1f, REPEATING, transform.Position(),
+					transform.Scale()),
+	  runAnimation("player_run", 48, 0.08f, REPEATING, transform.Position(),
+				   transform.Scale()),
 	  currentAnimation{&idleAnimation} {}
 
 void Player::Init() {
@@ -14,6 +15,12 @@ void Player::Init() {
 
 void Player::Update() {
 	if (IsKeyDown(KEY_D)) {
+		flipped = false;
+		transform.Position().x += 200.0f * GetFrameTime();
+		UpdateAnimationState(PlayerAnimationState::RUNNING);
+	} else if (IsKeyDown(KEY_A)) {
+		flipped = true;
+		transform.Position().x -= 200.0f * GetFrameTime();
 		UpdateAnimationState(PlayerAnimationState::RUNNING);
 	} else {
 		UpdateAnimationState(PlayerAnimationState::IDLE);
@@ -35,4 +42,4 @@ void Player::UpdateAnimationState(PlayerAnimationState newState) {
 	}
 }
 
-void Player::Draw() { currentAnimation->Play(); }
+void Player::Draw() { currentAnimation->Play(flipped); }

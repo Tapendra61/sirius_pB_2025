@@ -13,25 +13,19 @@ enum class PlayerAnimationState {
 
 class Player {
    private:
-	Vector2 position;
-	Vector2
-		playerSize;	 // TODO: Later change playerSize into scale value instead
-					 // and multiply this inside Animation with sizePerSlice
+	Transform2D
+		transform;	// TODO: Later change playerSize into scale value instead
+					// and multiply this inside Animation with sizePerSlice
 
 	Animation idleAnimation;
 	Animation runAnimation;
 	Animation* currentAnimation;
 	PlayerAnimationState currentAnimationState = PlayerAnimationState::IDLE;
+	bool flipped = false;
 
    public:
 	Player(Vector2 initPosition, Vector2 pSize);
-	inline void SetSize(Vector2 newSize) { playerSize = newSize; }
-	inline void SetSize(float width, float height) {
-		playerSize.x = width;
-		playerSize.y = height;
-	}
-	inline Vector2 GetPosition() { return position; }
-	inline void SetPosition(Vector2 pos) { position = pos; }
+	inline Transform2D& GetTransform2D() { return transform; }
 	void Init();
 	void Update();
 	void Draw();

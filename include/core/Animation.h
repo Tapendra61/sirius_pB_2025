@@ -27,15 +27,15 @@ class Animation {
 	float duration;		// Time remaining to play the next frame
 	AnimationType animationType;
 
-	Vector2 drawDestination;
-	Vector2 drawSize;
+	Vector2& drawDestination;
+	Vector2& drawSize;
 
    public:
 	Animation(const std::string& texKey, int sizePerSlice,
-			  float animationSpeed, AnimationType type, Vector2 drawDestination, Vector2 drawSize);
+			  float animationSpeed, AnimationType type, Vector2& drawDestination, Vector2& drawSize);
 
 	~Animation();
 
 	void Init();
-	void Play();
+	void Play(bool flipped);
 };
