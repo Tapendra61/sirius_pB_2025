@@ -11,6 +11,7 @@
 #include <raylib/raylib.h>
 
 #include <iostream>
+#include<memory>
 
 #include "CustomCamera.h"
 #include "Player.h"

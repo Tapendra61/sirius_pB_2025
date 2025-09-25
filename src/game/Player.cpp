@@ -35,9 +35,11 @@ void Player::UpdateAnimationState(PlayerAnimationState newState) {
 	switch (currentAnimationState) {
 		case PlayerAnimationState::RUNNING:
 			currentAnimation = &runAnimation;
+			runAnimation.Reset();
 			break;
 		default:
 			currentAnimation = &idleAnimation;
+			idleAnimation.Reset();
 			break;
 	}
 }

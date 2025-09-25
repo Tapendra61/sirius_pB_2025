@@ -16,14 +16,15 @@ void Animation::Init() {
 	firstIndex = 0;
 	currentIndex = 0;
 	lastIndex = totalSlices - 1;
+	duration = speed;
 }
 
 void Animation::Play(bool flipped) {
 	// Testing for One Shot animations
-	// if (IsKeyPressed(KEY_SPACE)) {
-	// 	currentIndex = firstIndex;
-	// 	duration = 0.0f;
-	// }
+	if (IsKeyPressed(KEY_SPACE)) {
+		currentIndex = firstIndex;
+		duration = 0.0f;
+	}
 
 	deltaTime = GetFrameTime();
 
@@ -57,7 +58,22 @@ void Animation::Play(bool flipped) {
 		case ONESHOT:
 			if (currentIndex < lastIndex) {
 				currentIndex++;
+			} else if (!completed) {
+				completed = true;
+				if (onCompleteCallback) {
+					onCompleteCallback();
+				}
 			}
 			break;
 	}
+}
+
+void Animation::SetOnComplete(std::function<void()> callback) {
+	onCompleteCallback = std::move(callback);
+}
+
+void Animation::Reset() {
+	currentIndex = firstIndex;
+	duration = 0.0f;
+	completed = false;
 }
