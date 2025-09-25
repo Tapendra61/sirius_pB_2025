@@ -30,8 +30,8 @@ class WindowManager {
 	// Camera
 	CustomCamera customCamera;
 
-	// Player
-	Player* player;
+	// Player in game
+	std::unique_ptr<Player> player;
 
    public:
 	WindowManager(int width, int height, const char* title, int fps);

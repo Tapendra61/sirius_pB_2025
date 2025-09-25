@@ -37,7 +37,7 @@ void WindowManager::Run() {
 // Data initialization here
 void WindowManager::Start() {
 	LoadResources();
-	player = new Player({400.0f, 400.0f}, {2.5f, 2.5f});
+	player = std::make_unique<Player>(Vector2{400.0f, 400.0f}, Vector2{2.5f, 2.5f});
 	player->Init();
 	sceneManager.SetGameScreen(MENU);
 }
@@ -69,6 +69,4 @@ void WindowManager::LoadResources() {
 		"resources/characters/the_blind_hunter/2. Run 48 x 48.png");
 }
 
-WindowManager::~WindowManager() {
-	delete player;
-}
+WindowManager::~WindowManager() { }
