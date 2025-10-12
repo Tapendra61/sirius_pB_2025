@@ -1,4 +1,4 @@
-#include "core/Animation.h"
+#include "../include/Animation.h"
 
 Animation::Animation(const std::string& texKey, int sizePerSlice,
 					 float animationSpeed, AnimationType type,
