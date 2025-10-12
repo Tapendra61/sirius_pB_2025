@@ -1,9 +1,13 @@
 # ========================
-# Build artifacts
+# CMake build artifacts
 # ========================
 /build/
-bin/
-obj/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+build.ninja
+*.dir
 *.o
 *.obj
 *.exe

@@ -6,5 +6,16 @@ add_library(siriuscore STATIC
 
 target_include_directories(siriuscore PUBLIC
 	${CMAKE_CURRENT_SOURCE_DIR}/include
-	${CMAKE_CURRENT_SOURCE_DIR}
+	${CMAKE_SOURCE_DIR}/dependencies/include
+)
+
+target_link_directories(siriuscore PRIVATE
+	${CMAKE_SOURCE_DIR}/dependencies/libs
+)
+
+target_link_libraries(siriuscore
+	raylib
+	winmm
+	opengl32
+	gdi32
 )
