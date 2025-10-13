@@ -9,11 +9,11 @@ target_include_directories(siriuscore PUBLIC
 	${CMAKE_SOURCE_DIR}/dependencies/include
 )
 
-target_link_directories(siriuscore PRIVATE
+target_link_directories(siriuscore PUBLIC
 	${CMAKE_SOURCE_DIR}/dependencies/libs
 )
 
-target_link_libraries(siriuscore
+target_link_libraries(siriuscore PUBLIC
 	raylib
 	winmm
 	opengl32

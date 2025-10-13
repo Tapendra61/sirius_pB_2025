@@ -1,4 +1,4 @@
-#include <game/WindowManager.h>
+#include <WindowManager.h>
 
 WindowManager::WindowManager(int width, int height, const char* title, int fps)
 	: sceneManager(SceneManager::GetInstance()) {

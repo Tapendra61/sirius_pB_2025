@@ -1,4 +1,4 @@
-#include<game/WindowManager.h>
+#include<WindowManager.h>
 
 // Reminder:
 // Working On Camera System

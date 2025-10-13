@@ -2,8 +2,8 @@
 
 #include <raylib/raylib.h>
 
-#include "core/Animation.h"
-#include "core/Transform.h"
+#include "Animation.h"
+#include "Transform.h"
 
 enum class PlayerAnimationState {
 	IDLE,
