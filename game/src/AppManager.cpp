@@ -1,6 +1,6 @@
-#include <WindowManager.h>
+#include <AppManager.h>
 
-WindowManager::WindowManager(int width, int height, const char* title, int fps)
+AppManager::AppManager(int width, int height, const char* title, int fps)
 	: sceneManager(SceneManager::GetInstance()) {
 	windowWidth = width;
 	windowHeight = height;
@@ -8,7 +8,7 @@ WindowManager::WindowManager(int width, int height, const char* title, int fps)
 	this->fps = fps;
 }
 
-void WindowManager::Run() {
+void AppManager::Run() {
 	InitWindow(windowWidth, windowHeight, windowTitle);
 
 	if (!IsWindowReady()) {
@@ -35,7 +35,7 @@ void WindowManager::Run() {
 }
 
 // Data initialization here
-void WindowManager::Start() {
+void AppManager::Start() {
 	LoadResources();
 	player = std::make_unique<Player>(Vector2{400.0f, 400.0f}, Vector2{2.5f, 2.5f});
 	player->Init();
@@ -43,13 +43,13 @@ void WindowManager::Start() {
 }
 
 // Data update tasks here
-void WindowManager::Update() {
+void AppManager::Update() {
 	player->Update();
 	// customCamera.UpdateCameraTarget(player.GetTransform2D().Position());
 }
 
 // Drawing tasks here
-void WindowManager::LateUpdate() {
+void AppManager::LateUpdate() {
 	settings.DrawFPSText();
 	sceneManager.RenderUi();
 
@@ -60,7 +60,7 @@ void WindowManager::LateUpdate() {
 	EndMode2D();
 }
 
-void WindowManager::LoadResources() {
+void AppManager::LoadResources() {
 	gAssetLoader.LoadTex(
 		"player_idle",
 		"resources/characters/the_blind_hunter/1. Idle 48 x 48.png");
@@ -69,4 +69,4 @@ void WindowManager::LoadResources() {
 		"resources/characters/the_blind_hunter/2. Run 48 x 48.png");
 }
 
-WindowManager::~WindowManager() { }
+AppManager::~AppManager() { }

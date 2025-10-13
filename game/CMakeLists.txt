@@ -4,7 +4,7 @@ add_executable(siriusgame
 	src/Player.cpp
 	src/SceneManager.cpp
 	src/Settings.cpp
-	src/WindowManager.cpp
+	src/AppManager.cpp
 )
 
 target_include_directories(siriusgame PRIVATE

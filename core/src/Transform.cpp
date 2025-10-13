@@ -1,4 +1,4 @@
-#include "../include/Transform.h"
+#include "Transform.h"
 
 void Transform2D::Translate(Vector2 value) {
 	position = Vector2Add(position, value);

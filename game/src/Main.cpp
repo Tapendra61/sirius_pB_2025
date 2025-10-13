@@ -1,12 +1,8 @@
-#include<WindowManager.h>
-
-// Reminder:
-// Working On Camera System
-// TODO: Transforms
+#include<AppManager.h>
 
 int main() {
-	WindowManager winManager{1920, 1080, "Raylib Game", 144};
-	winManager.Run();
+	AppManager appManager{1920, 1080, "Raylib Game", 144};
+	appManager.Run();
 
 	return 0;
 }

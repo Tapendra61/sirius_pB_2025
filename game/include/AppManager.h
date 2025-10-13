@@ -11,13 +11,14 @@
 #include <raylib/raylib.h>
 
 #include <iostream>
+#include <print>
 #include<memory>
 
 #include "CustomCamera.h"
 #include "Player.h"
 #include "Settings.h"
 
-class WindowManager {
+class AppManager {
    private:
 	int windowWidth;
 	int windowHeight;
@@ -35,9 +36,9 @@ class WindowManager {
 	std::unique_ptr<Player> player;
 
    public:
-	WindowManager(int width, int height, const char* title, int fps);
-	WindowManager(WindowManager&) = delete;
-	~WindowManager();
+	AppManager(int width, int height, const char* title, int fps);
+	AppManager(AppManager&) = delete;
+	~AppManager();
 
 	void Run();
 
