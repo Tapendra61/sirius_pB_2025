@@ -1,6 +1,5 @@
 add_executable(siriusgame
 	src/Main.cpp
-	src/CustomCamera.cpp
 	src/Player.cpp
 	src/SceneManager.cpp
 	src/Settings.cpp

@@ -2,7 +2,7 @@
 
 #include "raylib/raylib.h"
 
-namespace sirius {
+namespace Sirius {
 	class CustomCamera {
 	   private:
 		Camera2D cam;
