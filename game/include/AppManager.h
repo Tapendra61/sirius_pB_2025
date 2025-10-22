@@ -30,7 +30,7 @@ class AppManager {
 	Settings settings;
 
 	// Camera
-	CustomCamera customCamera;
+	sirius::CustomCamera customCamera;
 
 	// Player in game
 	std::unique_ptr<Player> player;
