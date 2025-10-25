@@ -4,6 +4,9 @@ namespace Sirius {
 	Engine::Engine(const int width, const int height, const char* title, const int fps) {
 		InitWindow(width, height, title);
 		SetTargetFPS(fps);
+		ToggleBorderlessWindowed();
+		DisableCursor();
+		InitDefaultCamera();
 	}
 
 	Engine::~Engine() {

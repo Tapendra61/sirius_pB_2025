@@ -8,41 +8,43 @@
 #pragma once
 
 #include <SceneManager.h>
-#include <raylib/raylib.h>
 
 #include <iostream>
+#include <memory>
 #include <print>
-#include<memory>
+#include <raylib/raylib.h>
 
+#include"Engine.h"
 #include "CustomCamera.h"
 #include "Player.h"
 #include "Settings.h"
 
 class AppManager {
-   private:
+  private:
 	int windowWidth;
 	int windowHeight;
 	int fps;
 	const char* windowTitle;
 
 	// Dependenceis
+	Sirius::Engine& engine;
 	SceneManager& sceneManager;
 	Settings settings;
 
 	// Camera
-	sirius::CustomCamera customCamera;
+	Sirius::CustomCamera customCamera;
 
 	// Player in game
 	std::unique_ptr<Player> player;
 
-   public:
+  public:
 	AppManager(int width, int height, const char* title, int fps);
 	AppManager(AppManager&) = delete;
 	~AppManager();
 
 	void Run();
 
-   private:
+  private:
 	void Start();
 	void Update();
 	void LateUpdate();

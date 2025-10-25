@@ -1,7 +1,7 @@
 #include <AppManager.h>
 
 AppManager::AppManager(int width, int height, const char* title, int fps)
-	: sceneManager(SceneManager::GetInstance()) {
+	: engine(Sirius::Engine::Instance(width, height, title, fps)), sceneManager(SceneManager::GetInstance()) {
 	windowWidth = width;
 	windowHeight = height;
 	windowTitle = title;
@@ -9,29 +9,8 @@ AppManager::AppManager(int width, int height, const char* title, int fps)
 }
 
 void AppManager::Run() {
-	InitWindow(windowWidth, windowHeight, windowTitle);
-
-	if (!IsWindowReady()) {
-		std::cout << "Window Creation Filed!!" << std::endl;
-		CloseWindow();
-	}
-
-	SetTargetFPS(fps);
-	ToggleBorderlessWindowed();
-	DisableCursor();
-
-	// Initialize game data
-	Start();
-	while (!WindowShouldClose()) {
-		ClearBackground(RAYWHITE);
-		// Update game data
-		Update();
-
-		// Render
-		BeginDrawing();
-		LateUpdate();
-		EndDrawing();
-	}
+	engine.Run(std::bind(&AppManager::Start, this), std::bind(&AppManager::Update, this),
+			   std::bind(&AppManager::LateUpdate, this));
 }
 
 // Data initialization here
@@ -53,20 +32,12 @@ void AppManager::LateUpdate() {
 	settings.DrawFPSText();
 	sceneManager.RenderUi();
 
-	BeginMode2D(customCamera.GetCamera());
-
 	player->Draw();
-
-	EndMode2D();
 }
 
 void AppManager::LoadResources() {
-	Sirius::gAssetLoader.LoadTex(
-		"player_idle",
-		"resources/characters/the_blind_hunter/1. Idle 48 x 48.png");
-	Sirius::gAssetLoader.LoadTex(
-		"player_run",
-		"resources/characters/the_blind_hunter/2. Run 48 x 48.png");
+	Sirius::gAssetLoader.LoadTex("player_idle", "resources/characters/the_blind_hunter/1. Idle 48 x 48.png");
+	Sirius::gAssetLoader.LoadTex("player_run", "resources/characters/the_blind_hunter/2. Run 48 x 48.png");
 }
 
-AppManager::~AppManager() { }
+AppManager::~AppManager() {}
