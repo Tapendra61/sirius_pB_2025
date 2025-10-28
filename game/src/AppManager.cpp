@@ -9,8 +9,8 @@ AppManager::AppManager(int width, int height, const char* title, int fps)
 }
 
 void AppManager::Run() {
-	engine.Run(std::bind(&AppManager::Start, this), std::bind(&AppManager::Update, this),
-			   std::bind(&AppManager::LateUpdate, this));
+	engine.Run(std::bind(&Start, this), std::bind(&Update, this),
+			   std::bind(&LateUpdate, this));
 }
 
 // Data initialization here

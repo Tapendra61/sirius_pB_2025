@@ -1,10 +1,10 @@
 #pragma once
 #include "raylib/raylib.h"
 #include "raylib/raymath.h"
-
+#include "Component.h"
 namespace Sirius {
 	// TODO: Transforms in work
-	class Transform2D {
+	class Transform2D : public Component {
 	  private:
 		Vector2 position{0.0f, 0.0f};
 		float rotation = 0.0f;
