@@ -1,7 +1,7 @@
 add_library(siriuscore STATIC
 	src/Animation.cpp
 	src/AssetLoader.cpp
-	src/Transform.cpp
+	src/Transform2D.cpp
 	src/Engine.cpp
 	src/CustomCamera.cpp
 	src/Entity.cpp

@@ -3,7 +3,8 @@
 
 namespace Sirius {
 	class Component {
-	  private:
+	  public:
+	  virtual ~Component() = default;
 		
 	};
 } // namespace Sirius

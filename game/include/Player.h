@@ -11,24 +11,22 @@ enum class PlayerAnimationState {
 };
 
 class Player : Sirius::Entity {
-   private:
-	Sirius::Transform2D
-		transform;	// TODO: Later change playerSize into scale value instead
-					// and multiply this inside Animation with sizePerSlice
+  private:
+	Sirius::Transform2D* transform = nullptr; // TODO: Later change playerSize into scale value instead
+											  // and multiply this inside Animation with sizePerSlice
 
 	Sirius::Animation idleAnimation;
 	Sirius::Animation runAnimation;
 	Sirius::Animation* currentAnimation;
 	PlayerAnimationState currentAnimationState = PlayerAnimationState::IDLE;
-	bool flipped = false;
+	bool isFlipped = false;
 
-   public:
+  public:
 	Player(Vector2 initPosition, Vector2 pSize);
-	inline Sirius::Transform2D& GetTransform2D() { return transform; }
 	void Init();
 	void Update();
 	void Draw();
 
-   private:
+  private:
 	void UpdateAnimationState(PlayerAnimationState newState);
 };

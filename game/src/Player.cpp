@@ -1,11 +1,9 @@
 #include "Player.h"
 
 Player::Player(Vector2 initPosition, Vector2 pSize)
-	: transform(initPosition, 0.0f, pSize),
-	  idleAnimation("player_idle", 48, 0.1f, Sirius::REPEATING, transform.Position(),
-					transform.Scale()),
-	  runAnimation("player_run", 48, 0.08f, Sirius::REPEATING, transform.Position(),
-				   transform.Scale()),
+	: transform(GetComponent<Sirius::Transform2D>()),
+	  idleAnimation("player_idle", 48, 0.1f, Sirius::REPEATING, transform->Position(), transform->Scale()),
+	  runAnimation("player_run", 48, 0.08f, Sirius::REPEATING, transform->Position(), transform->Scale()),
 	  currentAnimation{&idleAnimation} {}
 
 void Player::Init() {
@@ -15,12 +13,12 @@ void Player::Init() {
 
 void Player::Update() {
 	if (IsKeyDown(KEY_D)) {
-		flipped = false;
-		transform.Position().x += 200.0f * GetFrameTime();
+		isFlipped = false;
+		transform->Position().x += 200.0f * GetFrameTime();
 		UpdateAnimationState(PlayerAnimationState::RUNNING);
 	} else if (IsKeyDown(KEY_A)) {
-		flipped = true;
-		transform.Position().x -= 200.0f * GetFrameTime();
+		isFlipped = true;
+		transform->Position().x -= 200.0f * GetFrameTime();
 		UpdateAnimationState(PlayerAnimationState::RUNNING);
 	} else {
 		UpdateAnimationState(PlayerAnimationState::IDLE);
@@ -28,20 +26,23 @@ void Player::Update() {
 }
 
 void Player::UpdateAnimationState(PlayerAnimationState newState) {
-	if (currentAnimationState == newState) return;
+	if (currentAnimationState == newState)
+		return;
 
 	currentAnimationState = newState;
 
 	switch (currentAnimationState) {
-		case PlayerAnimationState::RUNNING:
-			currentAnimation = &runAnimation;
-			runAnimation.Reset();
-			break;
-		default:
-			currentAnimation = &idleAnimation;
-			idleAnimation.Reset();
-			break;
+	case PlayerAnimationState::RUNNING:
+		currentAnimation = &runAnimation;
+		runAnimation.Reset();
+		break;
+	default:
+		currentAnimation = &idleAnimation;
+		idleAnimation.Reset();
+		break;
 	}
 }
 
-void Player::Draw() { currentAnimation->Play(flipped); }
+void Player::Draw() {
+	currentAnimation->Play(isFlipped);
+}
