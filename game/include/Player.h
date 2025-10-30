@@ -2,8 +2,7 @@
 
 #include <raylib/raylib.h>
 
-#include "Animation.h"
-#include "Transform.h"
+#include "Core.h"
 
 enum class PlayerAnimationState {
 	IDLE,
@@ -11,7 +10,7 @@ enum class PlayerAnimationState {
 	ATTACKING,
 };
 
-class Player {
+class Player : Sirius::Entity {
    private:
 	Sirius::Transform2D
 		transform;	// TODO: Later change playerSize into scale value instead

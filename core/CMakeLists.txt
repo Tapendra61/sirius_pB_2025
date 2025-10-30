@@ -4,6 +4,7 @@ add_library(siriuscore STATIC
 	src/Transform.cpp
 	src/Engine.cpp
 	src/CustomCamera.cpp
+	src/Entity.cpp
 )
 
 target_include_directories(siriuscore PUBLIC

@@ -1,7 +1,8 @@
 #pragma once
-#include "Component.h"
-#include "Transform.h"
 #include <vector>
+#include<type_traits>
+
+#include"Core.h"
 
 namespace Sirius {
 	class Entity {
@@ -11,7 +12,8 @@ namespace Sirius {
 	  public:
 		Entity();
 
-		void AddComponent(Component component);
+		template<typename T>
+		void AddComponent();
 		Component& GetComponent();
 	};
 } // namespace Sirius

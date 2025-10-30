@@ -6,6 +6,7 @@
 
 #include "AssetLoader.h"
 #include "raylib/raylib.h"
+#include "Component.h"
 
 namespace Sirius {
 	enum AnimationType {
@@ -13,7 +14,7 @@ namespace Sirius {
 		ONESHOT = 1,
 	};
 
-	class Animation {
+	class Animation : public Component {
 	  private:
 		std::string textureKey;
 		Texture2D& texture; // The whole texture
@@ -43,7 +44,7 @@ namespace Sirius {
 			return completed;
 		}
 		void Play(bool flipped);
-		void SetOnComplete(std::function<void()> callback); // This callback runs when a ONESHOT animation is completed
+		void SetOnComplete(std::function<void()> callback);
 		void Reset();
 	};
 } // namespace Sirius
