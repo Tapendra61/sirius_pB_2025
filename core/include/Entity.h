@@ -1,23 +1,30 @@
 #pragma once
-#include <vector>
 #include<memory>
 #include<type_traits>
+#include<typeindex>
+#include<unordered_map>
 
 #include"Core.h"
 
 namespace Sirius {
 	class Entity {
 	  private:
-		std::vector<std::unique_ptr<Component>> components;
+		std::unordered_map<std::type_index, std::unique_ptr<Component>> components;
 
 	  public:
 		Entity();
 
 		template<typename T>
-		void AddComponent() noexcept {
+		void AddComponent() {
 			static_assert(std::is_base_of<Component, T>::value, "Type T must inherit from base class of Component!");
-			components.push_back(std::make_unique<T>());
+			
+			std::type_index type_idx(typeid(T));
+			
+			if(components.find(type_idx) == components.end()) {
+				components[type_idx] = std::make_unique<T>();
+			}
 		}
+		
 		template<typename T>
 		T* GetComponent() {
 			static_assert(std::is_base_of<Component, T>::value, "Type T must inherit from base class of Component!");
