@@ -1,0 +1,68 @@
+[
+{
+  "directory": "D:/cpp_projects/sirius_pB_2025/core",
+  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/siriuscore.dir/includes_CXX.rsp -std=gnu++23 -o CMakeFiles\\siriuscore.dir\\src\\Animation.cpp.obj -c D:\\cpp_projects\\sirius_pB_2025\\core\\src\\Animation.cpp",
+  "file": "D:/cpp_projects/sirius_pB_2025/core/src/Animation.cpp",
+  "output": "core/CMakeFiles/siriuscore.dir/src/Animation.cpp.obj"
+},
+{
+  "directory": "D:/cpp_projects/sirius_pB_2025/core",
+  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/siriuscore.dir/includes_CXX.rsp -std=gnu++23 -o CMakeFiles\\siriuscore.dir\\src\\AssetLoader.cpp.obj -c D:\\cpp_projects\\sirius_pB_2025\\core\\src\\AssetLoader.cpp",
+  "file": "D:/cpp_projects/sirius_pB_2025/core/src/AssetLoader.cpp",
+  "output": "core/CMakeFiles/siriuscore.dir/src/AssetLoader.cpp.obj"
+},
+{
+  "directory": "D:/cpp_projects/sirius_pB_2025/core",
+  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/siriuscore.dir/includes_CXX.rsp -std=gnu++23 -o CMakeFiles\\siriuscore.dir\\src\\Transform2D.cpp.obj -c D:\\cpp_projects\\sirius_pB_2025\\core\\src\\Transform2D.cpp",
+  "file": "D:/cpp_projects/sirius_pB_2025/core/src/Transform2D.cpp",
+  "output": "core/CMakeFiles/siriuscore.dir/src/Transform2D.cpp.obj"
+},
+{
+  "directory": "D:/cpp_projects/sirius_pB_2025/core",
+  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/siriuscore.dir/includes_CXX.rsp -std=gnu++23 -o CMakeFiles\\siriuscore.dir\\src\\Engine.cpp.obj -c D:\\cpp_projects\\sirius_pB_2025\\core\\src\\Engine.cpp",
+  "file": "D:/cpp_projects/sirius_pB_2025/core/src/Engine.cpp",
+  "output": "core/CMakeFiles/siriuscore.dir/src/Engine.cpp.obj"
+},
+{
+  "directory": "D:/cpp_projects/sirius_pB_2025/core",
+  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/siriuscore.dir/includes_CXX.rsp -std=gnu++23 -o CMakeFiles\\siriuscore.dir\\src\\CustomCamera.cpp.obj -c D:\\cpp_projects\\sirius_pB_2025\\core\\src\\CustomCamera.cpp",
+  "file": "D:/cpp_projects/sirius_pB_2025/core/src/CustomCamera.cpp",
+  "output": "core/CMakeFiles/siriuscore.dir/src/CustomCamera.cpp.obj"
+},
+{
+  "directory": "D:/cpp_projects/sirius_pB_2025/core",
+  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/siriuscore.dir/includes_CXX.rsp -std=gnu++23 -o CMakeFiles\\siriuscore.dir\\src\\Entity.cpp.obj -c D:\\cpp_projects\\sirius_pB_2025\\core\\src\\Entity.cpp",
+  "file": "D:/cpp_projects/sirius_pB_2025/core/src/Entity.cpp",
+  "output": "core/CMakeFiles/siriuscore.dir/src/Entity.cpp.obj"
+},
+{
+  "directory": "D:/cpp_projects/sirius_pB_2025/game",
+  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/siriusgame.dir/includes_CXX.rsp -std=gnu++23 -o CMakeFiles\\siriusgame.dir\\src\\Main.cpp.obj -c D:\\cpp_projects\\sirius_pB_2025\\game\\src\\Main.cpp",
+  "file": "D:/cpp_projects/sirius_pB_2025/game/src/Main.cpp",
+  "output": "game/CMakeFiles/siriusgame.dir/src/Main.cpp.obj"
+},
+{
+  "directory": "D:/cpp_projects/sirius_pB_2025/game",
+  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/siriusgame.dir/includes_CXX.rsp -std=gnu++23 -o CMakeFiles\\siriusgame.dir\\src\\Player.cpp.obj -c D:\\cpp_projects\\sirius_pB_2025\\game\\src\\Player.cpp",
+  "file": "D:/cpp_projects/sirius_pB_2025/game/src/Player.cpp",
+  "output": "game/CMakeFiles/siriusgame.dir/src/Player.cpp.obj"
+},
+{
+  "directory": "D:/cpp_projects/sirius_pB_2025/game",
+  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/siriusgame.dir/includes_CXX.rsp -std=gnu++23 -o CMakeFiles\\siriusgame.dir\\src\\SceneManager.cpp.obj -c D:\\cpp_projects\\sirius_pB_2025\\game\\src\\SceneManager.cpp",
+  "file": "D:/cpp_projects/sirius_pB_2025/game/src/SceneManager.cpp",
+  "output": "game/CMakeFiles/siriusgame.dir/src/SceneManager.cpp.obj"
+},
+{
+  "directory": "D:/cpp_projects/sirius_pB_2025/game",
+  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/siriusgame.dir/includes_CXX.rsp -std=gnu++23 -o CMakeFiles\\siriusgame.dir\\src\\Settings.cpp.obj -c D:\\cpp_projects\\sirius_pB_2025\\game\\src\\Settings.cpp",
+  "file": "D:/cpp_projects/sirius_pB_2025/game/src/Settings.cpp",
+  "output": "game/CMakeFiles/siriusgame.dir/src/Settings.cpp.obj"
+},
+{
+  "directory": "D:/cpp_projects/sirius_pB_2025/game",
+  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/siriusgame.dir/includes_CXX.rsp -std=gnu++23 -o CMakeFiles\\siriusgame.dir\\src\\AppManager.cpp.obj -c D:\\cpp_projects\\sirius_pB_2025\\game\\src\\AppManager.cpp",
+  "file": "D:/cpp_projects/sirius_pB_2025/game/src/AppManager.cpp",
+  "output": "game/CMakeFiles/siriusgame.dir/src/AppManager.cpp.obj"
+}
+]

@@ -30,6 +30,7 @@ build.ninja
 # IDE / Editor files
 # ========================
 .vscode/
+.zed/
 *.code-workspace
 .idea/
 *.suo
