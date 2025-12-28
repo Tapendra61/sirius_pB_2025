@@ -4,7 +4,7 @@
 #include <typeindex>
 #include <unordered_map>
 
-#include "Core.h"
+#include "Component.h"
 
 namespace Sirius {
 	class Entity {
@@ -14,7 +14,8 @@ namespace Sirius {
 	  public:
 		Entity();
 
-		template <typename T> void AddComponent() {
+		template <typename T>
+		void AddComponent() {
 			static_assert(std::is_base_of<Component, T>::value, "Type T must inherit from base class of Component!");
 
 			std::type_index typeIndex(typeid(T));
@@ -24,7 +25,8 @@ namespace Sirius {
 			}
 		}
 
-		template <typename T> T* GetComponent() {
+		template <typename T>
+		T* GetComponent() const {
 			static_assert(std::is_base_of<Component, T>::value, "Type T must inherit from base class of Component!");
 
 			std::type_index typeIndex(typeid(T));
@@ -36,7 +38,15 @@ namespace Sirius {
 			return nullptr;
 		}
 
-		template <typename T> bool HasComponent() const {
+		template <typename T>
+		bool RemoveComponent() {
+			static_assert(std::is_base_of_v<Component, T>, "Type T must inherit from base class of Component!");
+			return components.erase(std::type_index(typeid(T))) > 0;
+		}
+
+		template <typename T>
+		bool HasComponent() const {
+			static_assert(std::is_base_of_v<Component, T>, "Type T must inherit from base class of Component!");
 			return components.find(std::type_index(typeid(T))) != components.end();
 		}
 	};

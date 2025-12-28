@@ -9,3 +9,4 @@ SpaceAfterCStyleCast: true
 AllowShortFunctionsOnASingleLine: Empty
 PointerAlignment: Left
 NamespaceIndentation: All
+BreakTemplateDeclarations: Yes
