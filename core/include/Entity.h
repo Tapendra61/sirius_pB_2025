@@ -27,7 +27,7 @@ namespace Sirius {
 
 		template <typename T>
 		T* GetComponent() const {
-			static_assert(std::is_base_of<Component, T>::value, "Type T must inherit from base class of Component!");
+			static_assert(std::is_base_of_v<Component, T>, "Type T must inherit from base class of Component!");
 
 			std::type_index typeIndex(typeid(T));
 			auto iter = components.find(typeIndex);
