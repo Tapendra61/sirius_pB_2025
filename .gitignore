@@ -52,3 +52,8 @@ Thumbs.db
 
 # But keep root-level files directly in resources
 !/resources/*
+
+#clangd
+.cache/
+.cache/clangd
+.cache/clangd/**

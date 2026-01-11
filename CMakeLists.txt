@@ -1,3 +1,4 @@
+set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
 cmake_minimum_required(VERSION 4.0)
 project(SiriusEngine LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)

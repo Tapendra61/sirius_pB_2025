@@ -1,7 +1,6 @@
 #pragma once
 
 #include <raylib/raylib.h>
-
 #include "Core.h"
 
 enum class PlayerAnimationState {
@@ -12,8 +11,7 @@ enum class PlayerAnimationState {
 
 class Player : sr::Entity {
   private:
-	sr::Transform2D* transform = nullptr; // TODO: Later change playerSize into scale value instead
-											  // and multiply this inside Animation with sizePerSlice
+	sr::Transform2D* transform = nullptr; 
 
 	sr::Animation idleAnimation;
 	sr::Animation runAnimation;

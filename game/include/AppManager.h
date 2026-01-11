@@ -9,9 +9,7 @@
 
 #include <SceneManager.h>
 
-#include <iostream>
 #include <memory>
-#include <print>
 #include <raylib/raylib.h>
 
 #include"Engine.h"
