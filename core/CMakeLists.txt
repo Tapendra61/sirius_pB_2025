@@ -8,6 +8,7 @@ add_library(siriuscore STATIC
 	src/Engine.cpp
 	src/CustomCamera.cpp
 	src/Entity.cpp
+	src/EntityManager.cpp
 )
 
 target_include_directories(siriuscore PUBLIC

@@ -9,7 +9,7 @@ namespace sr {
 
 	class AssetLoader {
 	  private:
-		std::unordered_map<std::string, Texture2D> textureMap;
+		std::unordered_map<std::string, Texture2D> texture_map;
 
 	  public:
 		void LoadTex(const std::string& key, const std::string& path);
