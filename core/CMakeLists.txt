@@ -1,3 +1,5 @@
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 add_library(siriuscore STATIC
 	src/Animation.cpp
 	src/AssetLoader.cpp

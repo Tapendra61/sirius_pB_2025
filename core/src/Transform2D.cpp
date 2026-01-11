@@ -1,6 +1,7 @@
 #include "Transform2D.h"
+#include "raylib/raymath.h"
 
-namespace Sirius {
+namespace sr {
 	void Transform2D::Translate(Vector2 value) {
 		position = Vector2Add(position, value);
 	}
@@ -9,4 +10,4 @@ namespace Sirius {
 		position.x += dx;
 		position.y += dy;
 	}
-} // namespace Sirius
+} // namespace sr

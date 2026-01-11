@@ -1,20 +1,17 @@
 #include "AssetLoader.h"
 
-namespace Sirius
-{
-	void AssetLoader::LoadTex(const std::string &key, const std::string &path)
-	{
-		if (textureMap.find(key) != textureMap.end())
-		{
+#include <iostream>
+
+namespace sr {
+	void AssetLoader::LoadTex(const std::string& key, const std::string& path) {
+		if (textureMap.find(key) != textureMap.end()) {
 			std::cerr << "Texture already loaded with key: " << key << std::endl;
 			return;
 		}
 
 		Texture2D tex = LoadTexture(path.c_str());
-		if (tex.id == 0)
-		{
-			std::cerr << "Failed to load the texture from path: " << path
-					  << std::endl;
+		if (tex.id == 0) {
+			std::cerr << "Failed to load the texture from path: " << path << std::endl;
 			return;
 		}
 
@@ -22,12 +19,10 @@ namespace Sirius
 		std::cout << "Loaded Texture: " << path << std::endl;
 	}
 
-	Texture2D &AssetLoader::GetTexture(const std::string &key)
-	{
+	Texture2D& AssetLoader::GetTexture(const std::string& key) {
 		auto tex = textureMap.find(key);
 
-		if (tex == textureMap.end())
-		{
+		if (tex == textureMap.end()) {
 			std::cerr << "Texture of key: " << key << " not found!" << std::endl;
 			static Texture2D dummy = {0};
 			return dummy;
@@ -36,23 +31,19 @@ namespace Sirius
 		return tex->second;
 	}
 
-	void AssetLoader::UnloadAll()
-	{
-		for (auto &[key, tex] : textureMap)
-		{
+	void AssetLoader::UnloadAll() {
+		for (auto& [key, tex] : textureMap) {
 			UnloadTexture(tex);
 		}
 
 		textureMap.clear();
 	}
 
-	void AssetLoader::PrintAllTextureKeys()
-	{
-		for (auto &[key, tex] : textureMap)
-		{
+	void AssetLoader::PrintAllTextureKeys() {
+		for (auto& [key, tex] : textureMap) {
 			std::cout << "Key: " << key << std::endl;
 		}
 	}
 
 	AssetLoader gAssetLoader;
-}
+} // namespace sr

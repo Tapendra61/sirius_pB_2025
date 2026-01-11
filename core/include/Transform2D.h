@@ -1,8 +1,8 @@
 #pragma once
-#include "raylib/raylib.h"
-#include "raylib/raymath.h"
 #include "Component.h"
-namespace Sirius {
+#include "raylib/raylib.h"
+
+namespace sr {
 	// TODO: Transforms in work
 	class Transform2D : public Component {
 	  private:
@@ -25,4 +25,4 @@ namespace Sirius {
 		void Translate(Vector2 value);
 		void Translate(float dx, float dy);
 	};
-} // namespace Sirius
+} // namespace sr

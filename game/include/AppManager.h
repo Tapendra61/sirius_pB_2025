@@ -27,12 +27,12 @@ class AppManager {
 	const char* windowTitle;
 
 	// Dependenceis
-	Sirius::Engine& engine;
+	sr::Engine& engine;
 	SceneManager& sceneManager;
 	Settings settings;
 
 	// Camera
-	Sirius::CustomCamera customCamera;
+	sr::CustomCamera customCamera;
 
 	// Player in game
 	std::unique_ptr<Player> player;

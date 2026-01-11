@@ -3,10 +3,9 @@
 #include <type_traits>
 #include <typeindex>
 #include <unordered_map>
-
 #include "Component.h"
 
-namespace Sirius {
+namespace sr {
 	class Entity {
 	  private:
 		std::unordered_map<std::type_index, std::unique_ptr<Component>> components;
@@ -50,4 +49,4 @@ namespace Sirius {
 			return components.find(std::type_index(typeid(T))) != components.end();
 		}
 	};
-} // namespace Sirius
+} // namespace sr

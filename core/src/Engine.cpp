@@ -1,6 +1,6 @@
 #include "Engine.h"
 
-namespace Sirius {
+namespace sr {
 	Engine::Engine(const int width, const int height, const char* title, const int fps) {
 		InitWindow(width, height, title);
 		SetTargetFPS(fps);
@@ -38,4 +38,4 @@ namespace Sirius {
 	void Engine::InitDefaultCamera() {
 		defaultCamera = std::make_shared<CustomCamera>();
 	}
-} // namespace Sirius
+} // namespace sr

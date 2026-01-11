@@ -1,13 +1,12 @@
 #pragma once
 
 #include <functional>
-#include <iostream>
 #include <memory>
 
 #include "CustomCamera.h"
 #include <raylib/raylib.h>
 
-namespace Sirius {
+namespace sr {
 	class Engine {
 	  private:
 		bool running = false;
@@ -32,4 +31,4 @@ namespace Sirius {
 		}
 		void InitDefaultCamera();
 	};
-} // namespace Sirius
+} // namespace sr
