@@ -1,17 +1,26 @@
 #pragma once
+#include "Component.h"
+#include <cstdint>
 #include <memory>
 #include <type_traits>
 #include <typeindex>
 #include <unordered_map>
-#include "Component.h"
 
 namespace sr {
 	class Entity {
 	  private:
+		uint64_t entity_id_ = 0;
 		std::unordered_map<std::type_index, std::unique_ptr<Component>> components;
 
 	  public:
 		Entity();
+		uint64_t GetEntityId() const {
+			return entity_id_;
+		}
+
+		void SetEntityId(uint64_t value) {
+			entity_id_ = value;
+		}
 
 		template <typename T>
 		void AddComponent() {
@@ -25,16 +34,23 @@ namespace sr {
 		}
 
 		template <typename T>
-		T* GetComponent() const {
+		const T* GetComponent() const  {
 			static_assert(std::is_base_of_v<Component, T>, "Type T must inherit from base class of Component!");
 
 			std::type_index typeIndex(typeid(T));
 			auto iter = components.find(typeIndex);
 			if (iter != components.end()) {
-				return static_cast<T*>(iter->second.get());
+				return static_cast<const T*>(iter->second.get());
 			}
 
 			return nullptr;
+		}
+		
+		template<typename T>
+		T* GetComponent() {
+			return const_cast<T*>(
+				static_cast<const Entity*>(this)->GetComponent<T>()
+			);
 		}
 
 		template <typename T>
