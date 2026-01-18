@@ -17,6 +17,16 @@ namespace sr {
 	bool EntityManager::RemoveEntity(Entity* entity) {
 		return RemoveEntity(entity->GetEntityId());
 	}
+	
+	Entity* EntityManager::GetEntity(const uint64_t entity_id) {
+		for(const auto& entity : entities_) {
+			if(entity->GetEntityId() == entity_id) {
+				return entity.get();
+			}
+		}
+		
+		return nullptr;
+	}
 
 	uint64_t EntityManager::GenerateEntityId() {
 		return next_entity_id++;
