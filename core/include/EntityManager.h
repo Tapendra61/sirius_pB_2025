@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Entity.h"
 #include <cstdint>
 #include <memory>
@@ -33,7 +35,11 @@ namespace sr {
 		/// Returns true if successful.
 		bool RemoveEntity (Entity* entity);
 		
+		/// Returns the pointer to specified Entity by it's id
 		Entity* GetEntity(const uint64_t entity_id);
+		
+		/// Clear the entities list
+		bool Clear();
 
 	  private:
 		/// Generates a unique ID for a newly created Entity.

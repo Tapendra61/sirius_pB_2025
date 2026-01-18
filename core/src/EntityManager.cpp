@@ -1,4 +1,5 @@
 #include "EntityManager.h"
+#include <algorithm>
 #include <cstdint>
 
 namespace sr {
@@ -28,6 +29,11 @@ namespace sr {
 		return nullptr;
 	}
 
+	bool EntityManager::Clear() {
+		entities_.clear();
+		return entities_.empty();
+	}
+	
 	uint64_t EntityManager::GenerateEntityId() {
 		return next_entity_id++;
 	}
