@@ -1,5 +1,5 @@
 /*
-	@file WindowManager.h
+	@file AppManager.h
 	@author Tapendra Shahi
 	@date 2025-07-31
 	@brief Defines window management functions for Raylib Window
@@ -12,8 +12,7 @@
 #include <memory>
 #include <raylib/raylib.h>
 
-#include"Engine.h"
-#include "CustomCamera.h"
+#include "Core.h"
 #include "Player.h"
 #include "Settings.h"
 

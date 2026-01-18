@@ -1,3 +1,4 @@
+#include "Core.h"
 #include <AppManager.h>
 
 AppManager::AppManager(int width, int height, const char* title, int fps)
