@@ -1,7 +1,6 @@
 #pragma once
 
 #include <raylib/raylib.h>
-
 #include "Core.h"
 
 enum class PlayerAnimationState {
@@ -10,14 +9,13 @@ enum class PlayerAnimationState {
 	ATTACKING,
 };
 
-class Player : Sirius::Entity {
+class Player : sr::Entity {
   private:
-	Sirius::Transform2D* transform = nullptr; // TODO: Later change playerSize into scale value instead
-											  // and multiply this inside Animation with sizePerSlice
+	sr::Transform2D* transform = nullptr; 
 
-	Sirius::Animation idleAnimation;
-	Sirius::Animation runAnimation;
-	Sirius::Animation* currentAnimation;
+	sr::Animation idleAnimation;
+	sr::Animation runAnimation;
+	sr::Animation* currentAnimation;
 	PlayerAnimationState currentAnimationState = PlayerAnimationState::IDLE;
 	bool isFlipped = false;
 

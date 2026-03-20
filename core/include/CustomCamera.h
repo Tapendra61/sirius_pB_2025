@@ -2,14 +2,15 @@
 
 #include "raylib/raylib.h"
 
-namespace Sirius {
+namespace sr {
 	class CustomCamera {
-	   private:
+	  private:
 		Camera2D cam;
-	
-	   public:
-		CustomCamera(Vector2 cameraTarget = {0.0f, 0.0f}, Vector2 targetOffset = {0.0f, 0.0f}, float rotation = 0.0f, float zoom = 1.0f);
+
+	  public:
+		CustomCamera(Vector2 cameraTarget = {0.0f, 0.0f}, Vector2 targetOffset = {0.0f, 0.0f}, float rotation = 0.0f,
+					 float zoom = 1.0f);
 		Camera2D& GetCamera();
 		void UpdateCameraTarget(Vector2 newTarget);
 	};
-}
+} // namespace sr

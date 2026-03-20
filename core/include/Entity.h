@@ -1,34 +1,68 @@
 #pragma once
-#include <vector>
-#include<memory>
-#include<type_traits>
+#include "Component.h"
+#include <cstdint>
+#include <memory>
+#include <type_traits>
+#include <typeindex>
+#include <unordered_map>
 
-#include"Core.h"
-
-namespace Sirius {
+namespace sr {
 	class Entity {
 	  private:
-		std::vector<std::unique_ptr<Component>> components;
+		uint64_t entity_id_ = 0;
+		std::unordered_map<std::type_index, std::unique_ptr<Component>> components;
 
 	  public:
 		Entity();
-
-		template<typename T>
-		void AddComponent() noexcept {
-			static_assert(std::is_base_of<Component, T>::value, "Type T must inherit from base class of Component!");
-			components.push_back(std::make_unique<T>());
+		uint64_t GetEntityId() const {
+			return entity_id_;
 		}
-		template<typename T>
-		T* GetComponent() {
+
+		void SetEntityId(uint64_t value) {
+			entity_id_ = value;
+		}
+
+		template <typename T>
+		void AddComponent() {
 			static_assert(std::is_base_of<Component, T>::value, "Type T must inherit from base class of Component!");
 
-			for(auto& component : components) {
-				if(auto ptr = dynamic_cast<T*>(component.get())) {
-					return ptr;
-				}
+			std::type_index typeIndex(typeid(T));
+
+			if (components.find(typeIndex) == components.end()) {
+				components[typeIndex] = std::make_unique<T>();
+			}
+		}
+
+		template <typename T>
+		const T* GetComponent() const  {
+			static_assert(std::is_base_of_v<Component, T>, "Type T must inherit from base class of Component!");
+
+			std::type_index typeIndex(typeid(T));
+			auto iter = components.find(typeIndex);
+			if (iter != components.end()) {
+				return static_cast<const T*>(iter->second.get());
 			}
 
 			return nullptr;
 		}
+		
+		template<typename T>
+		T* GetComponent() {
+			return const_cast<T*>(
+				static_cast<const Entity*>(this)->GetComponent<T>()
+			);
+		}
+
+		template <typename T>
+		bool RemoveComponent() {
+			static_assert(std::is_base_of_v<Component, T>, "Type T must inherit from base class of Component!");
+			return components.erase(std::type_index(typeid(T))) > 0;
+		}
+
+		template <typename T>
+		bool HasComponent() const {
+			static_assert(std::is_base_of_v<Component, T>, "Type T must inherit from base class of Component!");
+			return components.find(std::type_index(typeid(T))) != components.end();
+		}
 	};
-} // namespace Sirius
+} // namespace sr

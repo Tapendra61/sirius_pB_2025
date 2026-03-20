@@ -1,7 +1,8 @@
+#include "Core.h"
 #include <AppManager.h>
 
 AppManager::AppManager(int width, int height, const char* title, int fps)
-	: engine(Sirius::Engine::Instance(width, height, title, fps)), sceneManager(SceneManager::GetInstance()) {
+	: engine(sr::Engine::Instance(width, height, title, fps)), sceneManager(SceneManager::GetInstance()) {
 	windowWidth = width;
 	windowHeight = height;
 	windowTitle = title;
@@ -9,8 +10,8 @@ AppManager::AppManager(int width, int height, const char* title, int fps)
 }
 
 void AppManager::Run() {
-	engine.Run(std::bind(&Start, this), std::bind(&Update, this),
-			   std::bind(&LateUpdate, this));
+	engine.Run(std::bind(&AppManager::Start, this), std::bind(&AppManager::Update, this),
+			   std::bind(&AppManager::LateUpdate, this));
 }
 
 // Data initialization here
@@ -36,8 +37,8 @@ void AppManager::LateUpdate() {
 }
 
 void AppManager::LoadResources() {
-	Sirius::gAssetLoader.LoadTex("player_idle", "resources/characters/the_blind_hunter/1. Idle 48 x 48.png");
-	Sirius::gAssetLoader.LoadTex("player_run", "resources/characters/the_blind_hunter/2. Run 48 x 48.png");
+	sr::gAssetLoader.LoadTex("player_idle", "../../resources/characters/the_blind_hunter/1. Idle 48 x 48.png");
+	sr::gAssetLoader.LoadTex("player_run", "../../resources/characters/the_blind_hunter/2. Run 48 x 48.png");
 }
 
 AppManager::~AppManager() {}

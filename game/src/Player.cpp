@@ -1,9 +1,9 @@
 #include "Player.h"
 
 Player::Player(Vector2 initPosition, Vector2 pSize)
-	: transform(GetComponent<Sirius::Transform2D>()),
-	  idleAnimation("player_idle", 48, 0.1f, Sirius::REPEATING, transform->Position(), transform->Scale()),
-	  runAnimation("player_run", 48, 0.08f, Sirius::REPEATING, transform->Position(), transform->Scale()),
+	: transform(GetComponent<sr::Transform2D>()),
+	  idleAnimation("player_idle", 48, 0.1f, sr::REPEATING, transform->Position(), transform->Scale()),
+	  runAnimation("player_run", 48, 0.08f, sr::REPEATING, transform->Position(), transform->Scale()),
 	  currentAnimation{&idleAnimation} {
 		transform->Position() = initPosition;
 		transform->Scale() = pSize;

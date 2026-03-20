@@ -1,10 +1,8 @@
 #pragma once
-#include <vector>
 
-namespace Sirius {
+namespace sr {
 	class Component {
 	  public:
-	  virtual ~Component() = default;
-		
+		virtual ~Component() = default;
 	};
-} // namespace Sirius
+} // namespace sr

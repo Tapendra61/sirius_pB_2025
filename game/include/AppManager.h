@@ -1,5 +1,5 @@
 /*
-	@file WindowManager.h
+	@file AppManager.h
 	@author Tapendra Shahi
 	@date 2025-07-31
 	@brief Defines window management functions for Raylib Window
@@ -9,13 +9,10 @@
 
 #include <SceneManager.h>
 
-#include <iostream>
 #include <memory>
-#include <print>
 #include <raylib/raylib.h>
 
-#include"Engine.h"
-#include "CustomCamera.h"
+#include "Core.h"
 #include "Player.h"
 #include "Settings.h"
 
@@ -27,12 +24,12 @@ class AppManager {
 	const char* windowTitle;
 
 	// Dependenceis
-	Sirius::Engine& engine;
+	sr::Engine& engine;
 	SceneManager& sceneManager;
 	Settings settings;
 
 	// Camera
-	Sirius::CustomCamera customCamera;
+	sr::CustomCamera customCamera;
 
 	// Player in game
 	std::unique_ptr<Player> player;

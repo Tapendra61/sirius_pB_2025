@@ -1,6 +1,8 @@
 #include "Animation.h"
 
-namespace Sirius {
+#include "AssetLoader.h"
+
+namespace sr {
 	Animation::Animation(const std::string& texKey, int sizePerSlice, float animationSpeed, AnimationType type,
 						 Vector2& drawDestination, Vector2& drawSize)
 		: texture(gAssetLoader.GetTexture(texKey)), textureKey(texKey), sizePerSlice(sizePerSlice),
@@ -70,4 +72,4 @@ namespace Sirius {
 		duration = 0.0f;
 		completed = false;
 	}
-} // namespace Sirius
+} // namespace sr

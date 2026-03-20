@@ -1,14 +1,12 @@
 #pragma once
 
 #include <functional>
-#include <iostream>
 #include <string>
 
-#include "AssetLoader.h"
-#include "raylib/raylib.h"
 #include "Component.h"
+#include "raylib/raylib.h"
 
-namespace Sirius {
+namespace sr {
 	enum AnimationType {
 		REPEATING = 0,
 		ONESHOT = 1,
@@ -47,4 +45,4 @@ namespace Sirius {
 		void SetOnComplete(std::function<void()> callback);
 		void Reset();
 	};
-} // namespace Sirius
+} // namespace sr
