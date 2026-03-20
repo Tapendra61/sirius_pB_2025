@@ -13,7 +13,7 @@ namespace sr {
 		uint64_t next_entity_id = 1;
 
 	  public:
-		/// Adds a new component of type T to the global EntityManager.
+		/// Adds a new component of type T to the EntityManager.
 		template <typename T>
 		T* CreateEntity() {
 			static_assert(std::is_base_of_v<Entity, T>, "Type T must inherit from base class of Entity to be created!");

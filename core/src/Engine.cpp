@@ -4,7 +4,7 @@ namespace sr {
 	Engine::Engine(const int width, const int height, const char* title, const int fps) {
 		InitWindow(width, height, title);
 		SetTargetFPS(fps);
-		ToggleBorderlessWindowed();
+		//ToggleBorderlessWindowed();
 		DisableCursor();
 		InitDefaultCamera();
 	}
@@ -41,13 +41,5 @@ namespace sr {
 	
 	void Engine::SetBackgroundClearColor(const Color clear_color) {
 		background_clear_color_ = clear_color;
-	}
-	
-	EntityManager& Engine::GetEntityManager() {
-		return entity_manager_;
-	}
-	
-	const EntityManager& Engine::GetEntityManager() const {
-		return entity_manager_;
 	}
 } // namespace sr

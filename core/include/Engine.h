@@ -15,7 +15,6 @@ namespace sr {
 
 		// Dependencies
 		std::shared_ptr<CustomCamera> default_camera_;
-		EntityManager entity_manager_;
 
 	  private:
 		Engine(const int width, const int height, const char* title, const int fps);
@@ -32,8 +31,5 @@ namespace sr {
 		void Run(std::function<void()> start, std::function<void()> update, std::function<void()> late_update);
 		void SetBackgroundClearColor(const Color clear_color);
 		void InitDefaultCamera();
-
-		EntityManager& GetEntityManager();
-		const EntityManager& GetEntityManager() const;
 	};
 } // namespace sr
