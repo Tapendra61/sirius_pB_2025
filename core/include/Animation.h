@@ -3,8 +3,10 @@
 #include <functional>
 #include <string>
 
-#include "Component.h"
 #include "raylib/raylib.h"
+#include "Core.h"
+
+#include "Component.h"
 
 namespace sr {
 	enum AnimationType {
@@ -13,7 +15,7 @@ namespace sr {
 	};
 
 	class Animation : public Component {
-	  private:
+	private:
 		std::string textureKey;
 		Texture2D& texture; // The whole texture
 		int sizePerSlice;	// Size of a single sprite to render
@@ -33,8 +35,8 @@ namespace sr {
 		Vector2& drawDestination;
 		Vector2& drawSize;
 
-	  public:
-		Animation(const std::string& texKey, int sizePerSlice, float animationSpeed, AnimationType type,
+	public:
+		Animation(AssetLoader& asset_loader, const std::string& texKey, int sizePerSlice, float animationSpeed, AnimationType type,
 				  Vector2& drawDestination, Vector2& drawSize);
 
 		void Init();

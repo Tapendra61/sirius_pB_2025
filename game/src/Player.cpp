@@ -1,9 +1,11 @@
 #include "Player.h"
 
+#include "Core.h"
+
 Player::Player(Vector2 initPosition, Vector2 pSize)
 	: transform(GetComponent<sr::Transform2D>()),
-	  idleAnimation("player_idle", 48, 0.1f, sr::REPEATING, transform->Position(), transform->Scale()),
-	  runAnimation("player_run", 48, 0.08f, sr::REPEATING, transform->Position(), transform->Scale()),
+	  idleAnimation(sr::Engine::Instance().GetAssetLoader(), "player_idle", 48, 0.1f, sr::REPEATING, transform->Position(), transform->Scale()),
+	  runAnimation(sr::Engine::Instance().GetAssetLoader(), "player_run", 48, 0.08f, sr::REPEATING, transform->Position(), transform->Scale()),
 	  currentAnimation{&idleAnimation} {
 		transform->Position() = initPosition;
 		transform->Scale() = pSize;

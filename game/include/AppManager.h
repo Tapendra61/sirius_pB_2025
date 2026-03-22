@@ -7,12 +7,13 @@
 
 #pragma once
 
-#include <SceneManager.h>
 
 #include <memory>
 #include <raylib/raylib.h>
 
 #include "Core.h"
+
+#include <SceneManager.h>
 #include "Player.h"
 #include "Settings.h"
 
@@ -25,6 +26,7 @@ class AppManager {
 
 	// Dependenceis
 	sr::Engine& engine;
+	sr::AssetLoader& asset_loader_; 
 	SceneManager& sceneManager;
 	Settings settings;
 

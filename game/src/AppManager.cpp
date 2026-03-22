@@ -1,8 +1,10 @@
-#include "Core.h"
 #include <AppManager.h>
+#include "Core.h"
 
-AppManager::AppManager(int width, int height, const char* title, int fps)
-	: engine(sr::Engine::Instance(width, height, title, fps)), sceneManager(SceneManager::GetInstance()) {
+AppManager::AppManager(int width, int height, const char* title, int fps) :
+	engine(sr::Engine::Instance(width, height, title, fps)),
+	asset_loader_(engine.GetAssetLoader()),
+	sceneManager(SceneManager::GetInstance()) {
 	windowWidth = width;
 	windowHeight = height;
 	windowTitle = title;
@@ -11,7 +13,7 @@ AppManager::AppManager(int width, int height, const char* title, int fps)
 
 void AppManager::Run() {
 	engine.Run(std::bind(&AppManager::Start, this), std::bind(&AppManager::Update, this),
-			   std::bind(&AppManager::LateUpdate, this));
+		std::bind(&AppManager::LateUpdate, this));
 }
 
 // Data initialization here
@@ -37,8 +39,8 @@ void AppManager::LateUpdate() {
 }
 
 void AppManager::LoadResources() {
-	sr::gAssetLoader.LoadTex("player_idle", "../../resources/characters/the_blind_hunter/1. Idle 48 x 48.png");
-	sr::gAssetLoader.LoadTex("player_run", "../../resources/characters/the_blind_hunter/2. Run 48 x 48.png");
+	asset_loader_.LoadTex("player_idle", "../resources/characters/the_blind_hunter/1. Idle 48 x 48.png");
+	asset_loader_.LoadTex("player_run", "../resources/characters/the_blind_hunter/2. Run 48 x 48.png");
 }
 
 AppManager::~AppManager() {}

@@ -1,11 +1,11 @@
-#include "Animation.h"
+#include "Core.h"
 
 #include "AssetLoader.h"
 
 namespace sr {
-	Animation::Animation(const std::string& texKey, int sizePerSlice, float animationSpeed, AnimationType type,
+	Animation::Animation(AssetLoader& asset_loader, const std::string& texKey, int sizePerSlice, float animationSpeed, AnimationType type,
 						 Vector2& drawDestination, Vector2& drawSize)
-		: texture(gAssetLoader.GetTexture(texKey)), textureKey(texKey), sizePerSlice(sizePerSlice),
+		: texture(asset_loader.GetTexture(texKey)), textureKey(texKey), sizePerSlice(sizePerSlice),
 		  speed(animationSpeed), animationType(type), drawDestination(drawDestination), drawSize(drawSize) {}
 
 	void Animation::Init() {

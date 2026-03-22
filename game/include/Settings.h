@@ -3,11 +3,10 @@
 
 class Settings
 {
+	private:
+		bool showFPS = true;
 
-private:
-	bool showFPS = true;
-
-public:
-	inline void SetShowFPS(bool value) { showFPS = value; }
-	void DrawFPSText();
+	public:
+		inline void SetShowFPS(bool value) { showFPS = value; }
+		void DrawFPSText();
 };

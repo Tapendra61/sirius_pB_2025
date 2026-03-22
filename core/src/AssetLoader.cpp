@@ -1,6 +1,9 @@
 #include "AssetLoader.h"
 
 #include <iostream>
+#include <unordered_map>
+
+#include "raylib/raylib.h"
 
 namespace sr {
 	void AssetLoader::LoadTex(const std::string& key, const std::string& path) {
@@ -39,11 +42,14 @@ namespace sr {
 		texture_map.clear();
 	}
 
+	/// Prints all texture keys in the loaded textures pool
 	void AssetLoader::PrintAllTextureKeys() {
 		for (auto& [key, tex] : texture_map) {
 			std::cout << "Key: " << key << std::endl;
 		}
 	}
-
-	AssetLoader gAssetLoader;
+	
+	AssetLoader::~AssetLoader() noexcept {
+		UnloadAll();
+	}
 } // namespace sr

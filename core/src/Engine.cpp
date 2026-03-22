@@ -6,7 +6,9 @@ namespace sr {
 		SetTargetFPS(fps);
 		//ToggleBorderlessWindowed();
 		DisableCursor();
-		InitDefaultCamera();
+		
+		// Initialize engine resources
+		Init();
 	}
 
 	Engine::~Engine() {
@@ -18,8 +20,13 @@ namespace sr {
 		return instance;
 	}
 
+	void Engine::Init() {
+		InitAssetLoader();
+		InitDefaultCamera();
+	}
+	
 	void Engine::Run(std::function<void()> start, std::function<void()> update, std::function<void()> late_update) {
-		running = true;
+		running_ = true;
 		start();
 		while (!WindowShouldClose()) {
 			BeginDrawing();
@@ -34,7 +41,11 @@ namespace sr {
 			EndDrawing();
 		}
 	}
-
+	
+	void Engine::InitAssetLoader() {
+		asset_loader_ = std::make_unique<AssetLoader>();
+	}
+	
 	void Engine::InitDefaultCamera() {
 		default_camera_ = std::make_shared<CustomCamera>();
 	}
