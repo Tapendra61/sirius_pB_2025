@@ -1,6 +1,6 @@
 #pragma once
 #include "Component.h"
-#include "raylib/raylib.h"
+#include "raylib.h"
 
 namespace sr {
 	// TODO: Transforms in work

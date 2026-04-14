@@ -1,5 +1,5 @@
 #include "Transform2D.h"
-#include "raylib/raymath.h"
+#include "raymath.h"
 
 namespace sr {
 	void Transform2D::Translate(Vector2 value) {

@@ -5,7 +5,7 @@
 
 #include "CustomCamera.h"
 #include "EntityManager.h"
-#include <raylib/raylib.h>
+#include <raylib.h>
 
 namespace sr {
 	class Engine {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "raylib/raylib.h"
+#include "raylib.h"
 
 namespace sr {
 	class CustomCamera {

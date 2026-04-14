@@ -1,6 +1,6 @@
 #pragma once
 
-#include <raylib/raylib.h>
+#include <raylib.h>
 #include "Core.h"
 
 enum class PlayerAnimationState {

@@ -3,7 +3,7 @@
 #include <string>
 #include <unordered_map>
 
-#include "raylib/raylib.h"
+#include "raylib.h"
 
 namespace sr {
 

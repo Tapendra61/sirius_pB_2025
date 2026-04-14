@@ -4,7 +4,7 @@
 #include <string>
 
 #include "Component.h"
-#include "raylib/raylib.h"
+#include "raylib.h"
 
 namespace sr {
 	enum AnimationType {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include<string>
-#include<raylib/raylib.h>
+#include<raylib.h>
 
 enum GameScreen{
 	LOGO,
