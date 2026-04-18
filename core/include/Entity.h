@@ -14,6 +14,12 @@ namespace sr {
 
 	  public:
 		Entity();
+		virtual ~Entity() = default;
+
+		virtual void Start() {}
+		virtual void Update(float deltaTime) {}
+		virtual void LateUpdate(float deltaTime) {}
+
 		uint64_t GetEntityId() const {
 			return entity_id_;
 		}

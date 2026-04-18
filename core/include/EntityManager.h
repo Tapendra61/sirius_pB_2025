@@ -10,10 +10,11 @@ namespace sr {
 	class EntityManager {
 	  private:
 		std::vector<std::unique_ptr<Entity>> entities_;
+		std::vector<Entity*> pentding_start_;
 		uint64_t next_entity_id = 1;
 
 	  public:
-		/// Adds a new component of type T to the EntityManager.
+		/// Adds a new Entity of type T to the EntityManager.
 		template <typename T>
 		T* CreateEntity() {
 			static_assert(std::is_base_of_v<Entity, T>, "Type T must inherit from base class of Entity to be created!");
@@ -24,9 +25,13 @@ namespace sr {
 			T* entity_ptr = entity.get();
 			entities_.push_back(std::move(entity));
 
+			pending_start_.push_back(entity_ptr);
+
 			return entity_ptr;
 		}
-		
+
+		void FlushPendingStarts();
+
 		/// Removes the specified Entity from the global EntityManager by it's id.
 		/// Returns true if successful.
 		bool RemoveEntity (uint64_t entity_id);

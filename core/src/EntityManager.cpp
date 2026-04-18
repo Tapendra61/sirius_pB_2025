@@ -4,6 +4,15 @@
 
 namespace sr {
 
+	void EntityManager::FlushPendingStarts() {
+		size_t length = pentding_start_.size();
+		for (size_t i = 0; i < length; i++) {
+			pentding_start_[i]->Start();
+		}
+
+		pentding_start_.clear();
+	}
+
 	bool EntityManager::RemoveEntity(uint64_t entity_id) {
 		auto it = std::remove_if(entities_.begin(), entities_.end(),
 								 [entity_id](const std::unique_ptr<Entity>& e) { return e->GetEntityId() == entity_id; });

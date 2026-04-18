@@ -10,7 +10,6 @@
 #include <SceneManager.h>
 
 #include <memory>
-#include <raylib.h>
 
 #include "Core.h"
 #include "Player.h"
