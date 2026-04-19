@@ -30,19 +30,26 @@ namespace sr {
 			return entity_ptr;
 		}
 
+		/// Calls Start on all Entities whose Start call is pending
 		void FlushPendingStarts();
+
+		/// Calls Update on all Entities whose Start is not pending
+		void UpdateAll(float dt);
+
+		/// Calls LateUpdate on all Entities whose Start is not pending
+		void LateUpdateAll(float dt);
 
 		/// Removes the specified Entity from the global EntityManager by it's id.
 		/// Returns true if successful.
-		bool RemoveEntity (uint64_t entity_id);
-		
+		bool RemoveEntity(uint64_t entity_id);
+
 		/// Removes the specified Entity from the global EntityManager by it's pointer
 		/// Returns true if successful.
-		bool RemoveEntity (Entity* entity);
-		
+		bool RemoveEntity(Entity* entity);
+
 		/// Returns the pointer to specified Entity by it's id
 		Entity* GetEntity(const uint64_t entity_id);
-		
+
 		/// Clear the entities list
 		bool Clear();
 
