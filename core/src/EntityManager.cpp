@@ -72,6 +72,8 @@ namespace sr {
 
 	bool EntityManager::Clear() {
 		entities_.clear();
+		pending_start_.clear();
+		pending_destroy_.clear();
 		return entities_.empty();
 	}
 
