@@ -13,14 +13,16 @@ namespace sr {
 	}
 
 	void EntityManager::UpdateAll(float dt) {
-		for (auto& entity : entities_) {
-			entity->Update(dt);
+		const size_t n = entities_.size();
+		for (size_t i = 0; i < n; i++) {
+			entities_[i]->Update(dt);
 		}
 	}
 
 	void EntityManager::LateUpdateAll(float dt) {
-		for (auto& entity : entities_) {
-			entity->LateUpdate(dt);
+		const size_t n = entities_.size();
+		for (size_t i = 0; i < n; i++) {
+			entities_[i]->LateUpdate(dt);
 		}
 	}
 
