@@ -10,7 +10,7 @@ namespace sr {
 	class EntityManager {
 	  private:
 		std::vector<std::unique_ptr<Entity>> entities_;
-		std::vector<Entity*> pentding_start_;
+		std::vector<Entity*> pending_start_;
 		std::vector<uint64_t> pending_destroy_;
 		uint64_t next_entity_id = 1;
 
@@ -40,18 +40,19 @@ namespace sr {
 		/// Calls LateUpdate on all Entities whose Start is not pending
 		void LateUpdateAll(float dt);
 
-		/// Removes the specified Entity from the global EntityManager by it's id.
-		/// Returns true if successful.
+		/// Queues the Entity for destruction at the next FlushPendingDestroys().
+		/// Returns true if the id currently refers to a liver Entity
 		bool RemoveEntity(uint64_t entity_id);
 
-		/// Removes the specified Entity from the global EntityManager by it's pointer
-		/// Returns true if successful.
+		/// Queues the Entity for destruction at the next FlushPendingDestroys().
+		/// Returns true if the Entity to be destroyed refers to a live Entity
 		bool RemoveEntity(Entity* entity);
 
 		/// Returns the pointer to specified Entity by it's id
 		Entity* GetEntity(const uint64_t entity_id);
 
-		/// Remove all the entities from the list
+		/// Remove all the entities pending for destruction
+		/// Called at frame boundary. Safe point to actually erase
 		void FlushPendingDestroys();
 
 		/// Clear the entities list
