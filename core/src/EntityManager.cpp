@@ -6,12 +6,10 @@
 
 namespace sr {
 	void EntityManager::FlushPendingStarts() {
-		size_t length = pending_start_.size();
-		for (size_t i = 0; i < length; i++) {
-			pending_start_[i]->Start();
-		}
-
-		pending_start_.erase(pending_start_.begin(), pending_start_.begin() + length);
+		std::vector<Entity*> batch;
+		batch.swap(pending_start_);
+		for (Entity* e : batch)
+			e->Start();
 	}
 
 	void EntityManager::UpdateAll(float dt) {
