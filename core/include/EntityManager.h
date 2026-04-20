@@ -11,6 +11,7 @@ namespace sr {
 	  private:
 		std::vector<std::unique_ptr<Entity>> entities_;
 		std::vector<Entity*> pentding_start_;
+		std::vector<uint64_t> pending_destroy_;
 		uint64_t next_entity_id = 1;
 
 	  public:
@@ -49,6 +50,9 @@ namespace sr {
 
 		/// Returns the pointer to specified Entity by it's id
 		Entity* GetEntity(const uint64_t entity_id);
+
+		/// Remove all the entities from the list
+		void FlushPendingDestroys();
 
 		/// Clear the entities list
 		bool Clear();
