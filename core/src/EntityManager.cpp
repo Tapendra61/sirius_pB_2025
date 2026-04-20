@@ -11,7 +11,7 @@ namespace sr {
 			pending_start_[i]->Start();
 		}
 
-		pending_start_.clear();
+		pending_start_.erase(pending_start_.begin(), pending_start_.begin() + length);
 	}
 
 	void EntityManager::UpdateAll(float dt) {
